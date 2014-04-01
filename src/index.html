@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+Mmh Vibrator! transforms your phone into a sensual sextoy!
+Copyright © 2014 firesex
+mmhfiresex@gmail.com
+
+This file is part of Mmh Vibrator!
+
+Mmh Vibrator! is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mmh Vibrator!</title>
+<meta name="author" content="firesex">
+<meta name="application-name" content="Mmh Vibrator!">
+<meta name="viewport" content="height=device-height, width=device-width" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+	<h1>Work in progress...</h1>
+</header>
+
+<section id="content">
+	<section id="main">
+		<div id="left">
+			<p>Lie down and enjoy!</p>
+		</div>
+		<div id="right">
+			<p id="battery">Current battery state: </p>
+		</div>
+	</section>
+	
+	<section id="description">
+	</section>
+	
+	<section id="buttons">
+		<button type="button" id="start" class="unactive">START</button>
+		<button type="button" id="stop" class="unactive">STOP</button>
+	</section>
+</section>
+
+<footer>
+	<p>Copyright © 2014 <a href="mailto:mmhfiresex@gmail.com" title="contact">firesex</a></p>
+</footer>
+
+<script>
+(function ()
+{
+	"use strict";
+
+	var bat = document.querySelector("#battery")
+	var btnstart = document.querySelector("#start")
+	var btnstop = document.querySelector("#stop")
+	var anim = document.querySelector("#main");
+	var idInterval = 0;
+
+	// battery
+	function updateBatteryStatus()
+	{
+		var str = "Current battery state: ";
+
+		if (navigator.battery.charging)
+			str += "charging";
+		else
+			str += navigator.battery.level * 100 + "%";
+		bat.innerHTML = str;
+	}
+	navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
+	navigator.battery.addEventListener("levelchange", updateBatteryStatus);
+	updateBatteryStatus();
+
+	// vibrator
+	function start()
+	{
+		navigator.vibrate([200, 100, 300, 50, 50, 50, 50, 50, 50, 300, 200, 100, 500]);
+		if (idInterval === 0) // first time we run it
+		{
+			idInterval = setInterval(start, 2050);
+			anim.style.animationPlayState = "running";
+			btnstart.className = "active";
+		}
+	}
+
+	function stop()
+	{
+		navigator.vibrate(0);
+		clearInterval(idInterval);
+		idInterval = 0;
+		anim.style.animationPlayState = "paused";
+		btnstart.className = "unactive";
+		btnstop.className = "unactive";
+	}
+	btnstart.addEventListener("click", start);
+	btnstop.addEventListener("click", stop);
+})()
+</script>
+</body>
+</html>

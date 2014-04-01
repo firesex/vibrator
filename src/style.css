@@ -1,0 +1,140 @@
+/*
+Mmh Vibrator! transforms your phone into a sensual sextoy!
+Copyright © 2014 firesex
+mmhfiresex@gmail.com
+
+This file is part of Mmh Vibrator!
+
+Mmh Vibrator! is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+html, body
+{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	text-align: center;
+}
+
+body
+{
+	display: flex;
+	flex-flow: column;
+	background-color: #e887e8;
+	color: white;
+}
+
+header, footer
+{
+	flex-grow: 0;
+}
+
+header
+{
+	background-color: rgba(255, 255, 255, 0.2);
+	margin-bottom: 1%;
+}
+
+footer p
+{
+	margin: 0;
+	margin-top: 0.5%;
+}
+
+#content
+{
+	flex-grow: 1;
+	display: flex;
+	flex-flow: column;
+	background: url(left1.svg) no-repeat left, url(right1.svg) no-repeat right;
+}
+
+#main
+{
+	flex-grow: 1;
+	background: url(Glass_Dildo.png) no-repeat center center;
+	background-size: contain;
+}
+
+#left, #right
+{
+	position: absolute;
+}
+
+#left
+{
+	left: 1%;
+}
+
+#right
+{
+	right: 1%;
+}
+
+#buttons, #description
+{
+	flex-grow: 0;
+	flex-wrap: wrap;
+}
+
+#description
+{
+	height: 3rem;
+}
+
+button, button.unactive
+{
+	box-shadow: inset 0px 1px 1px 0px #ffd4f2;
+	color: white;
+	background: -moz-linear-gradient(center top, #ffa6d5 5%, #ef027d 100%);
+	background-color: #ffa6d5;
+	border-radius: 2rem;
+	border: 1px solid #ee1eb5;
+	font-family: Arial;
+	font-size: 1rem;
+	font-style: normal;
+	text-shadow: 0.25rem 0.25rem 0.1rem #c70067;
+	padding: 0.5rem;
+}
+
+button.active
+{
+	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);
+	background-color: #ef027d;
+}
+
+/* ANIMATION */
+
+#main
+{
+	animation-name: dildo;
+	animation-duration: 50ms;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-play-state: paused;
+}
+@keyframes dildo
+{
+	from
+	{
+		background-position: 45% center;
+	}
+
+	to
+	{
+		background-position: 55% center;
+	}
+}
+
