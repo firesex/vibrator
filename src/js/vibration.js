@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Represent a vibration: an object containing an array of value to be passed at the navigator.vibrate() function.
- * Actually, the application contains 4 vibration objects: slow, long, continuous, custom and Mmh!
+ * Actually, the application contains 5 vibration objects: slow, medium, long, custom and Mmh!
  * @param copy: it's to act as a copy constructor. this value is optional.
  */
 function Vibration (copy)

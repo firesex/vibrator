@@ -23,22 +23,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * contains the different Vibration objects and their index in the array :
  * - 0: Slow
- * - 1: Long
- * - 2: Mmh! (random)
- * - 3: Custom
+ * - 1: Medium
+ * - 2: Long
+ * - 3: Mmh! (random)
+ * - 4: Custom
  */
 var datas = {
 	"SLOW": 0,
-	"LONG": 1,
-	"MMH": 2,
-	"CUSTOM": 3,
-	"LENGTH": 4,
+	"MEDIUM": 1,
+	"LONG": 2,
+	"MMH": 3,
+	"CUSTOM": 4,
+	"LENGTH": 5,
 
 	"ARRAY": [
 		{
 			"name": "Slow",
 			"description": "Vibrates slowly, that's a good start for a good massage",
-			"vibes": [100, 100, 100, 100]
+			"vibes": [200, 200]
+		},
+
+		{
+			"name": "Medium",
+			"description": "Vibrates slowly, that's a good start for a good massage",
+			"vibes": [100, 100]
 		},
 
 		{
