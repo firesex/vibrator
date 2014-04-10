@@ -58,13 +58,13 @@ footer p
 	flex-grow: 1;
 	display: flex;
 	flex-flow: column;
-	background: url(left1.svg) no-repeat left, url(right1.svg) no-repeat right;
+	background: url(images/left1.svg) no-repeat left, url(images/right1.svg) no-repeat right;
 }
 
 #main
 {
 	flex-grow: 1;
-	background: url(Glass_Dildo.png) no-repeat center center;
+	background: url(images/Glass_Dildo2.png) no-repeat center center;
 	background-size: contain;
 }
 
@@ -91,7 +91,24 @@ footer p
 
 #description
 {
-	height: 3rem;
+	min-height: 1.5rem;
+	font-size: 1rem;
+	margin: 0;
+	padding: 0.25rem;
+}
+
+#buttons ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#buttons li
+{
+	list-style: none;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+	display: inline-block;
 }
 
 button, button.unactive
@@ -109,7 +126,7 @@ button, button.unactive
 	padding: 0.5rem;
 }
 
-button.active
+button.active, button:ACTIVE
 {
 	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);
 	background-color: #ef027d;
@@ -117,24 +134,38 @@ button.active
 
 /* ANIMATION */
 
-#main
+.vibrate
 {
 	animation-name: dildo;
-	animation-duration: 50ms;
+	animation-duration: 2000ms;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
-	animation-play-state: paused;
+	animation-play-state: running;
 }
 @keyframes dildo
 {
 	from
 	{
-		background-position: 45% center;
+		margin-right: 0;
+		margin-left: 5%;
+	}
+
+	33%
+	{
+		margin-left: 0;
+		margin-right: 10%;
+	}
+
+	67%
+	{
+		margin-right: 0;
+		margin-left: 10%;
 	}
 
 	to
 	{
-		background-position: 55% center;
+		margin-left: 0;
+		margin-right: 10%;
 	}
 }
 

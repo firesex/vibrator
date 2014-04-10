@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <meta name="author" content="firesex">
 <meta name="application-name" content="Mmh Vibrator!">
 <meta name="viewport" content="height=device-height, width=device-width" />
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
 <header>
@@ -43,12 +43,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		</div>
 	</section>
 	
-	<section id="description">
-	</section>
+	<aside>
+		<p id="description"></p>
+	</aside>
 	
 	<section id="buttons">
-		<button type="button" id="start" class="unactive">START</button>
-		<button type="button" id="stop" class="unactive">STOP</button>
 	</section>
 </section>
 
@@ -56,14 +55,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<p>Copyright © 2014 <a href="mailto:mmhfiresex@gmail.com" title="contact">firesex</a></p>
 </footer>
 
+<script src="js/resources/datas.json"></script>
+<script src="js/vibration.js"></script>
+<script src="js/vibrator.js"></script>
 <script>
 (function ()
 {
 	"use strict";
 
 	var bat = document.querySelector("#battery")
-	var btnstart = document.querySelector("#start")
-	var btnstop = document.querySelector("#stop")
+	var btnstart = document.querySelector("#b0")
+	var btnstop = document.querySelector("#b3")
 	var anim = document.querySelector("#main");
 	var idInterval = 0;
 
@@ -81,31 +83,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
 	navigator.battery.addEventListener("levelchange", updateBatteryStatus);
 	updateBatteryStatus();
-
-	// vibrator
-	function start()
-	{
-		navigator.vibrate([200, 100, 300, 50, 50, 50, 50, 50, 50, 300, 200, 100, 500]);
-		if (idInterval === 0) // first time we run it
-		{
-			idInterval = setInterval(start, 2050);
-			anim.style.animationPlayState = "running";
-			btnstart.className = "active";
-		}
-	}
-
-	function stop()
-	{
-		navigator.vibrate(0);
-		clearInterval(idInterval);
-		idInterval = 0;
-		anim.style.animationPlayState = "paused";
-		btnstart.className = "unactive";
-		btnstop.className = "unactive";
-	}
-	btnstart.addEventListener("click", start);
-	btnstop.addEventListener("click", stop);
-})()
+})();
 </script>
 </body>
 </html>

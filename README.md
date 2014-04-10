@@ -17,7 +17,7 @@ Licensing
 
 The program and its sources are released under the GNU GPLv3 (see the LICENSE file).
 
-All the used images have been created by OpenClips and released under the CCO (Creative Commons public domain):
+All the used images have been created by OpenClips and released under the CC0 (Creative Commons public domain):
 http://pixabay.com/en/users/OpenClips/
 
 Except for the file "Glass_Dildo.JPG" which has been created by JennyD and released under the CC-BY license: 
