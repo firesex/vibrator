@@ -22,10 +22,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 (function ()
 {
 	"use strict";
+	// global variables for the script
+	var vibrations; // the different objects Vibration stored in datas.json
+	var idInterval = 0; // the id of the function in the interval in order to stop the interval
+	var currentVib = null; // the current object Vibration running. if none, === null
+	var currentButton = null; // the current button in action (null if none)
+	var anim = document.querySelector("#main"); // the animation to run
+	var description = document.querySelector("#description"); // where to write the description of a button
+
 	// wait for translation
 
 	// get vibrations from datas.json
-	var vibrations = Vibration.createVibes(datas.ARRAY);
+	vibrations = Vibration.createVibes(datas.ARRAY);
 
 	// get the user's customization from the localstorage
 
@@ -38,9 +46,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		li = document.createElement("li");
 		button = document.createElement("button");
 		button.setAttribute("type", "button");
-		button.setAttribute("id", vibrations[i].name);
+		button.setAttribute("id", "b" + i);
 		button.setAttribute("class", "unactive");
 		button.appendChild(document.createTextNode(vibrations[i].name));
+		button.addEventListener("click", startVibrations);
 		li.appendChild(button);
 		ul.appendChild(li);
 	}
@@ -49,5 +58,66 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// callbacks for UI actions
 
 	// callbacks functions
+	function startVibrations (event)
+	{
+		console.log(event.target);
+		var index = parseInt(event.target.getAttribute("id").slice(1), 10);
+
+		if (currentButton !== null || currentVib !== null)
+			stopVibrations();
+		currentButton = event.target;
+		currentVib = vibrations[index];
+
+		currentButton.removeEventListener("click", startVibrations);
+		currentButton.addEventListener("click", stopVibrations);
+		currentButton.className = "active";
+		anim.classList.add("vibrate");
+		description.innerHTML = currentVib.description;
+		if (index === datas.CUSTOM)
+			;
+		if (index === datas.MMH)
+			vibrateRandom(); // set idInterval in it
+		else
+			idInterval = setInterval(vibrate, currentVib.time);
+	}
+
+	function stopVibrations ()
+	{
+		navigator.vibrate(0);
+		clearInterval(idInterval);
+		idInterval = 0;
+		if (currentButton !== null)
+		{
+			currentButton.removeEventListener("click", stopVibrations);
+			currentButton.addEventListener("click", startVibrations);
+			currentButton.className = "unactive";
+		}
+		anim.classList.remove("vibrate");
+		description.innerHTML = "";
+		currentButton = null;
+		currentVib = null;
+	}
+	
+
+	function vibrate ()
+	{
+		navigator.vibrate(currentVib.vibes);
+	}
+
+	function vibrateRandom ()
+	{
+		// random config
+		var i;
+		clearInterval(idInterval);
+		for (i = 0; i < currentVib.vibes.length; i++)
+		{
+			if (i % 2 === 0)
+				currentVib.vibes[i] = Math.round(Math.random() * 950 + 50);
+			else
+				currentVib.vibes[i] = Math.round(Math.random() * 500 + 50);
+		}
+		idInterval = setInterval(vibrateRandom, currentVib.time);
+		vibrate();
+	}
 })();
 

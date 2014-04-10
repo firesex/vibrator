@@ -91,7 +91,10 @@ footer p
 
 #description
 {
-	height: 3rem;
+	min-height: 1.5rem;
+	font-size: 1rem;
+	margin: 0;
+	padding: 0.25rem;
 }
 
 #buttons ul
@@ -123,7 +126,7 @@ button, button.unactive
 	padding: 0.5rem;
 }
 
-button.active
+button.active, button:ACTIVE
 {
 	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);
 	background-color: #ef027d;

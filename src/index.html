@@ -43,7 +43,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		</div>
 	</section>
 	
-	<aside id="description">
+	<aside>
+		<p id="description"></p>
 	</aside>
 	
 	<section id="buttons">
@@ -63,8 +64,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	"use strict";
 
 	var bat = document.querySelector("#battery")
-	var btnstart = document.querySelector("#Slow")
-	var btnstop = document.querySelector("#Custom")
+	var btnstart = document.querySelector("#b0")
+	var btnstop = document.querySelector("#b3")
 	var anim = document.querySelector("#main");
 	var idInterval = 0;
 
@@ -82,34 +83,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
 	navigator.battery.addEventListener("levelchange", updateBatteryStatus);
 	updateBatteryStatus();
-
-	// vibrator
-	function start()
-	{
-		navigator.vibrate([200, 100, 300, 50, 50, 50, 50, 50, 50, 300, 200, 100, 500]);
-		if (idInterval === 0) // first time we run it
-		{
-			idInterval = setInterval(start, 2050);
-			anim.classList.add("vibrate");
-			btnstart.removeEventListener("click", start);
-			btnstart.addEventListener("click", stop);
-			btnstart.className = "active";
-		}
-	}
-
-	function stop()
-	{
-		navigator.vibrate(0);
-		clearInterval(idInterval);
-		idInterval = 0;
-		btnstart.removeEventListener("click", stop);
-		btnstart.addEventListener("click", start);
-		anim.classList.remove("vibrate");
-		btnstart.className = "unactive";
-		btnstop.className = "unactive";
-	}
-	btnstart.addEventListener("click", start);
-	btnstop.addEventListener("click", stop);
 })();
 </script>
 </body>
