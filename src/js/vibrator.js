@@ -33,9 +33,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// wait for translation
 
 	// get vibrations from datas.json
-	vibrations = Vibration.createVibes(datas.ARRAY);
+	vibrations = datas.ARRAY.map(function(el) { return Vibration.createVibes(el); });
+	datas.ARRAY = null; //freed
 
 	// get the user's customization from the localstorage
+	var persoSaved = localStorage.getItem(vibrations[datas.CUSTOM]);
+	console.log(persoSaved);
+	if (persoSaved !== null)
+		vibrations[datas.CUSTOM] = Vibrations.createVibes(persoSaved);
+	persoSaved = null; // freed
 
 	// insert the buttons in the webpage
 	var ul = document.createElement("ul"), li, button;
@@ -60,7 +66,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// callbacks functions
 	function startVibrations (event)
 	{
-		console.log(event.target);
 		var index = parseInt(event.target.getAttribute("id").slice(1), 10);
 
 		if (currentButton !== null || currentVib !== null)

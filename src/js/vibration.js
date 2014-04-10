@@ -70,16 +70,12 @@ function Vibration (copy)
 }
 
 /**
- * Transform an array of object get with a JSON.parse into an array of Vibration objects (with the "time" member)
+ * Transform an object get with a JSON.parse into a Vibration object (with the "time" member)
  * @param the array from the JSON.parse
- * @return an array of Vibration objects
+ * @return a Vibration object
  */
-Object.defineProperty(Vibration, "createVibes", { value: function (values) {
-	var i, retour = [];
-
-	for (i = 0; i < values.length; i++)
-		retour.push(new Vibration(values[i]));
-	return retour;
+Object.defineProperty(Vibration, "createVibes", { value: function (object) {
+	return new Vibration(object);
 }});
 
 
