@@ -7,7 +7,7 @@
 		"url": "https://github.com/firesex"
 	},
 	"installs_allowed_from": [ "https://marketplace.firefox.com" ],
-	"launch_path": "/index.html",
+	"launch_path": "vibrator/src/index.html",
 	"icons": {
 	},
 	"fullscreen": "true",
