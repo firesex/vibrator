@@ -9,7 +9,6 @@
 	"installs_allowed_from": [ "https://marketplace.firefox.com" ],
 	"launch_path": "/index.html",
 	"icons": {
-	"128": "none"
 	},
 	"fullscreen": "true",
 	"permissions": {
@@ -20,10 +19,10 @@
 	"default_locale": "en",
 	"locales": {
 		"en": {
-			"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want!",
+			"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want!"
 		},
 		"fr": {
-			"description": "Mmh Vibrator! transforme ton portable en un sextoy sensuel ! Fais-le vibrer quand et comme tu veux !",
+			"description": "Mmh Vibrator! transforme ton portable en un sextoy sensuel ! Fais-le vibrer quand et comme tu veux !"
 		}
 	}
 }
