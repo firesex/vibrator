@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<ul class="buttonList centpercent">
 		<li><h1>Mmh Vibrator!</h1></li>
 		<li id="battery"><button type="button"></button></li>
-		<li><button type="button">?</button></li>
+		<li><button type="button" id="helpbtn">?</button></li>
 	</ul>
 </header>
 
@@ -57,16 +57,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	</section>
 </section>
 
-<section id="help" class="contents hidden">
+<section id="helpsec" class="contents hidden">
 	<header class="text">
 		<ul class="buttonList centpercent">
-			<li><button type="button">HowTo</button></li>
-			<li><button type="button">About</button></li>
+			<li><button type="button" id="howtobtn">HowTo</button></li>
+			<li><button type="button" id="aboutbtn">About</button></li>
 		</ul>
 	</header>
 	<article id="howto">
+	howto
 	</article>
 	<article id="about" class="hidden">
+	about
 	</article>
 </section>
 
@@ -78,8 +80,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	</article>
 	<footer class="text">
 		<ul class="buttonList centpercent">
-			<li><button type="button">Save</button></li>
-			<li><button type="button">Cancel</button></li>
+			<li><button type="button" id="save">Save</button></li>
+			<li><button type="button" id="cancel">Cancel</button></li>
 		</ul>
 	</footer>
 </section>
@@ -91,32 +93,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <script src="js/resources/datas.json"></script>
 <script src="js/vibration.js"></script>
 <script src="js/vibrator.js"></script>
-<script>
-(function ()
-{
-	"use strict";
-
-	var bat = document.querySelector("#battery button")
-	var btnstart = document.querySelector("#b0")
-	var btnstop = document.querySelector("#b3")
-	var anim = document.querySelector("#main");
-	var idInterval = 0;
-
-	// battery
-	function updateBatteryStatus()
-	{
-		var str = "Battery: ";
-
-		if (navigator.battery.charging)
-			str += "charging";
-		else
-			str += navigator.battery.level * 100 + "%";
-		bat.innerHTML = str;
-	}
-	navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
-	navigator.battery.addEventListener("levelchange", updateBatteryStatus);
-	updateBatteryStatus();
-})();
-</script>
 </body>
 </html>

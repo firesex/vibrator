@@ -72,9 +72,10 @@ button
 	font-size: 1rem;
 	font-style: normal;
 	padding: 0.5rem;
+	width: 100%;
 }
 
-button:ACTIVE
+button:ACTIVE, button.active
 {
 	background-color: rgba(0, 0, 0, 0.5);
 	text-shadow: 0 0 0.5rem white;
@@ -154,6 +155,19 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 	text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5) !important;
 	background-color: rgba(0, 0, 0, 0) !important;
 	font-size: 1.5rem !important;
+}
+
+/*********** HELP SECTION ***********/
+
+#helpsec
+{
+	background: url(images/massage-resize.jpg) no-repeat bottom right;
+	background-size: cover;
+}
+
+#helpsec .buttonList li
+{
+	flex-grow: 1;
 }
 
 /*********** MAIN SECTION ***********/
