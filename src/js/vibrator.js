@@ -38,13 +38,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 	// get the user's customization from the localstorage
 	var persoSaved = localStorage.getItem(vibrations[datas.CUSTOM]);
-	console.log(persoSaved);
+
 	if (persoSaved !== null)
 		vibrations[datas.CUSTOM] = Vibrations.createVibes(persoSaved);
 	persoSaved = null; // freed
 
 	// insert the buttons in the webpage
 	var ul = document.createElement("ul"), li, button;
+	ul.classList.add("buttonList");
 	var i;
 	
 	for (i = 0; i < datas.LENGTH; i++)
@@ -53,7 +54,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		button = document.createElement("button");
 		button.setAttribute("type", "button");
 		button.setAttribute("id", "b" + i);
-		button.setAttribute("class", "unactive");
+		button.classList.add("unactive");
 		button.appendChild(document.createTextNode(vibrations[i].name));
 		button.addEventListener("click", startVibrations);
 		li.appendChild(button);
@@ -75,7 +76,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 		currentButton.removeEventListener("click", startVibrations);
 		currentButton.addEventListener("click", stopVibrations);
-		currentButton.className = "active";
+		currentButton.classList.remove("unactive");
+		currentButton.classList.add("active");
 		anim.classList.add("vibrate");
 		description.innerHTML = currentVib.description;
 		if (index === datas.CUSTOM)
@@ -95,7 +97,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		{
 			currentButton.removeEventListener("click", stopVibrations);
 			currentButton.addEventListener("click", startVibrations);
-			currentButton.className = "unactive";
+			currentButton.classList.remove("active");
+			currentButton.classList.add("unactive");
 		}
 		anim.classList.remove("vibrate");
 		description.innerHTML = "";

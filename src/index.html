@@ -29,26 +29,59 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
-<header>
-	<h1>Work in progress...</h1>
+<header id="mainHeader" class="text">
+	<ul class="buttonList centpercent">
+		<li><h1>Mmh Vibrator!</h1></li>
+		<li id="battery"><button type="button"></button></li>
+		<li><button type="button">?</button></li>
+	</ul>
 </header>
 
-<section id="content">
+<section id="contents" class="contents">
 	<section id="main">
 		<div id="left">
 			<p>Lie down and enjoy!</p>
 		</div>
 		<div id="right">
-			<p id="battery">Current battery state: </p>
 		</div>
 	</section>
 	
-	<aside>
+	<aside class="text">
 		<p id="description"></p>
 	</aside>
 	
 	<section id="buttons">
+<!-- 		<ul class="buttonList">
+				<li class="buttonList"><button type="button" id="b0" classe="unactive">Slow</button></li>
+			</ul> -->
 	</section>
+</section>
+
+<section id="help" class="contents hidden">
+	<header class="text">
+		<ul class="buttonList centpercent">
+			<li><button type="button">HowTo</button></li>
+			<li><button type="button">About</button></li>
+		</ul>
+	</header>
+	<article id="howto">
+	</article>
+	<article id="about" class="hidden">
+	</article>
+</section>
+
+<section id="customization" class="contents hidden">
+	<article>
+		<ul id="vibes">
+		</ul>
+		<button type="button" id="addVibes">ADD</button>
+	</article>
+	<footer class="text">
+		<ul class="buttonList centpercent">
+			<li><button type="button">Save</button></li>
+			<li><button type="button">Cancel</button></li>
+		</ul>
+	</footer>
 </section>
 
 <footer>
@@ -63,7 +96,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
 	"use strict";
 
-	var bat = document.querySelector("#battery")
+	var bat = document.querySelector("#battery button")
 	var btnstart = document.querySelector("#b0")
 	var btnstop = document.querySelector("#b3")
 	var anim = document.querySelector("#main");
@@ -72,7 +105,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// battery
 	function updateBatteryStatus()
 	{
-		var str = "Current battery state: ";
+		var str = "Battery: ";
 
 		if (navigator.battery.charging)
 			str += "charging";
