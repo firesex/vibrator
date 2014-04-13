@@ -24,7 +24,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	"use strict";
 	// global variables for the script
 	var vibrations; // the different objects Vibration stored in datas.json
-	var idInterval = 0; // the id of the function in the interval in order to stop the interval
 
 	// wait for translation
 
@@ -66,6 +65,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	updateBatteryStatus();
 		// buttons
 	var helpbtn = document.querySelector("#helpbtn"); // button "?"
+	var contentsec = document.querySelector("#contents"); // main section
 	var helpsec = document.querySelector("#helpsec"); // help section
 	var customsec = document.querySelector("#customization"); // customization section
 
@@ -77,9 +77,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	helpbtn.addEventListener("click", onHelpClick);
 	howtobtn.addEventListener("click", onHowtoClick);
 	aboutbtn.addEventListener("click", onAboutClick);
+	document.querySelector("#save").addEventListener("click", onDisplayMain);
 
 	// callbacks for UI actions
 		// battery
+	/** update the battery state */
 	function updateBatteryStatus ()
 	{
 		var str = "Battery: ";
@@ -92,9 +94,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	}
 
 		// buttons
-	var displayedSection = document.querySelector("#contents");
+	var displayedSection = contentsec;
 	var lastDisplayedSection = displayedSection;
 
+	/** display the help section */
 	function onHelpClick ()
 	{
 		if (displayedSection === helpsec) // hide the help section
@@ -116,15 +119,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		}
 	}
 
+	/** display the customization section */
 	function onCustomizationClick ()
 	{
 		displayedSection.classList.add("hidden");
 		lastDisplayedSection = displayedSection;
 		displayedSection = customsec;
 		customsec.classList.remove("hidden");
-		helpbtn.classList.add("active");
 	}
 
+	/** display the main (contents) section */
+	function onDisplayMain ()
+	{
+		displayedSection.classList.add("hidden");
+		lastDisplayedSection = displayedSection;
+		displayedSection = contentsec;
+		contentsec.classList.remove("hidden");
+	}
+
+	/** in the help section, display the howto article */
 	function onHowtoClick ()
 	{
 		if (!howtobtn.classList.contains("active")) // button not already active
@@ -136,6 +149,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		}
 	}
 
+	/** in the help section, display the about article */
 	function onAboutClick ()
 	{
 		if (!aboutbtn.classList.contains("active")) // button not already active
@@ -153,6 +167,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	var anim = document.querySelector("#main"); // the animation to run
 	var description = document.querySelector("#description"); // where to write the description of a button
 
+	/** start to vibrate after a click on a button */
 	function startVibrations (event)
 	{
 		var index = parseInt(event.target.getAttribute("id").slice(1), 10);
@@ -171,16 +186,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		if (index === datas.CUSTOM)
 			description.addEventListener("click", onCustomizationClick);
 		if (index === datas.MMH)
-			vibrateRandom(); // set idInterval in it
+			currentVib.startVibrationRandom(); // set idInterval in it
 		else
-			idInterval = setInterval(vibrate, currentVib.time);
+			currentVib.startVibration();
 	}
 
+	/** ends the vibration */
 	function stopVibrations ()
 	{
-		navigator.vibrate(0);
-		clearInterval(idInterval);
-		idInterval = 0;
+		if (currentVib !== null)
+			currentVib.stopVibration();
 		description.removeEventListener("click", onCustomizationClick);
 		if (currentButton !== null)
 		{
@@ -193,28 +208,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		description.innerHTML = "";
 		currentButton = null;
 		currentVib = null;
-	}
-	
-
-	function vibrate ()
-	{
-		navigator.vibrate(currentVib.vibes);
-	}
-
-	function vibrateRandom ()
-	{
-		// random config
-		var i;
-		clearInterval(idInterval);
-		for (i = 0; i < currentVib.vibes.length; i++)
-		{
-			if (i % 2 === 0)
-				currentVib.vibes[i] = Math.round(Math.random() * 950 + 50);
-			else
-				currentVib.vibes[i] = Math.round(Math.random() * 500 + 50);
-		}
-		idInterval = setInterval(vibrateRandom, currentVib.time);
-		vibrate();
 	}
 })();
 

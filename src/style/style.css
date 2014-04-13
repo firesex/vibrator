@@ -71,6 +71,7 @@ button
 	border: none;
 	font-size: 1rem;
 	font-style: normal;
+	font-weight: bold;
 	padding: 0.5rem;
 	width: 100%;
 }
@@ -94,6 +95,10 @@ button:ACTIVE, button.active
 	order: 20;
 	display: flex;
 	flex-flow: column;
+}
+
+.contents article
+{
 	overflow: auto;
 }
 
@@ -165,7 +170,7 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 	background-size: cover;
 }
 
-#helpsec .buttonList li
+#helpsec .buttonList li, #customization .buttonList li
 {
 	flex-grow: 1;
 }
