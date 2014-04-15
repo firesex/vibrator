@@ -109,7 +109,7 @@ function Vibration (copy)
 		if (typeof values === "undefined")
 			values = this.vibes;
 		navigator.vibrate(values);
-	}
+	};
 	vibrate = vibrate.bind(this);
 
 	/** each time this function is called, create 5 vibrations taken in the vibes array and call vibrate() */
@@ -124,7 +124,7 @@ function Vibration (copy)
 		}
 		idInterval = setInterval(vibrateRandom, time);
 		vibrate(values);
-	}
+	};
 	vibrateRandom = vibrateRandom.bind(this);
 }
 

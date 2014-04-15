@@ -23,4 +23,4 @@ http://pixabay.com/en/users/OpenClips/
 Except for the file "Glass_Dildo.JPG" which has been created by JennyD and released under the CC-BY license:
 https://commons.wikimedia.org/wiki/File:Glass_Dildo.JPG
 and "massage.jpg" which has been created by Lucas Frasca and released under the CC-BY-NC-SA license: https://secure.flickr.com/photos/lucasfrasca/12405482565
-
+and "smartphone_navy.png" which has been created by agomjo and released in the public domain: https://openclipart.org/detail/191409/smartphone-display-color-navy-by-agomjo-191409

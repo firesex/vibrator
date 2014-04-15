@@ -32,11 +32,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	datas.ARRAY = null; //freed
 
 	// get the user's customization from the localstorage
-	var persoSaved = localStorage.getItem(vibrations[datas.CUSTOM]);
+	var persoSaved = localStorage.getItem(vibrations[datas.CUSTOM].name);
 
 	if (persoSaved !== null)
-		vibrations[datas.CUSTOM] = Vibrations.createVibes(persoSaved);
+		vibrations[datas.CUSTOM] = Vibration.createVibes(JSON.parse(persoSaved));
 	persoSaved = null; // freed
+	var listvibes = new ListVibes(vibrations[datas.CUSTOM]); // we load it
 
 	// insert the buttons in the webpage
 	var ul = document.createElement("ul"), li, button;
@@ -78,6 +79,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	howtobtn.addEventListener("click", onHowtoClick);
 	aboutbtn.addEventListener("click", onAboutClick);
 	document.querySelector("#save").addEventListener("click", onDisplayMain);
+	// custom buttons
+	document.querySelector("#save").addEventListener("click", onSaveCustom);
+	document.querySelector("#cancel").addEventListener("click", onCancelCustom);
+	document.querySelector("#addVibes").addEventListener("click", listvibes.addVibes);
 
 	// callbacks for UI actions
 		// battery
@@ -159,6 +164,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			howtosec.classList.add("hidden");
 			aboutsec.classList.remove("hidden");
 		}
+	}
+
+	// custom buttons
+	/** save the custom vibration in local storage, load it and show the main screen */
+	function onSaveCustom ()
+	{
+		vibrations[datas.CUSTOM] = listvibes.onSave();
+		localStorage.setItem(vibrations[datas.CUSTOM].name, JSON.stringify(vibrations[datas.CUSTOM]));
+		onDisplayMain();
+	}
+
+	/** reset the custom gui and return to the main screen */
+	function onCancelCustom ()
+	{
+		listvibes.onCancel();
+		onDisplayMain();
 	}
 
 	// callbacks functions

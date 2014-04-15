@@ -58,7 +58,7 @@ var datas = {
 		{
 			"name": "Mmh!",
 			"description": "Random vibrations: will never be the same and changes continuously! Will always surprise you",
-			"vibes": [50, 100, 150, 200, 250, 300, 400, 500, 600, 700] // length = 10
+			"vibes": [50, 100, 150, 200, 250, 300, 400, 500, 600, 700]
 		},
 
 		{

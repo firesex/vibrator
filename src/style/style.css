@@ -76,7 +76,7 @@ button
 	width: 100%;
 }
 
-button:ACTIVE, button.active
+button:active, button.active
 {
 	background-color: rgba(0, 0, 0, 0.5);
 	text-shadow: 0 0 0.5rem white;
@@ -121,12 +121,18 @@ ul.buttonList
 {
 	list-style: none;
 	display: inline-block;
-	border-left: 1px solid rgba(0, 0, 0, 0.1);
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	border-left: 1px solid rgba(255, 255, 255, 0.75);
 }
 
-.buttonList button
+.buttonList li:first-child
 {
-	border-left: 1px solid rgba(255, 255, 255, 0.75);
+	border-left: none;
+}
+
+.buttonList li:last-child
+{
+	border-right: none;
 }
 
 ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent button
@@ -140,6 +146,12 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 #mainHeader button
 {
 	font-size: 3rem;
+}
+
+#mainHeader li:first-child
+{
+	width: 100%;
+	text-align: left;
 }
 
 #mainHeader h1
@@ -173,6 +185,50 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 #helpsec .buttonList li, #customization .buttonList li
 {
 	flex-grow: 1;
+}
+
+/*********** CUSTOMIZATION SECTION ***********/
+
+ul#vibes
+{
+	text-align: left;
+}
+
+#vibes li
+{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#vibes li:first-child
+{
+	border-top: none;
+}
+
+#vibes li:last-child
+{
+	border-bottom: none;
+}
+
+
+#vibes li:nth-child(odd)
+{
+	list-style-image: url(images/smartphone_navy-vibratemini.png);
+}
+
+#vibes li:nth-child(odd):after
+{
+	content: "Vibrate";
+}
+
+#vibes li:nth-child(even)
+{
+	list-style-image: url(images/smartphone_navy-mini.png);
+}
+
+#vibes li:nth-child(even):after
+{
+	content: "Pause";
 }
 
 /*********** MAIN SECTION ***********/
@@ -239,13 +295,13 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 	padding: 0.5rem;
 }
 
-#buttons button.active, #buttons button:ACTIVE
+#buttons button.active, #buttons button:active
 {
 	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);
 	background-color: #ef027d;
 }
 
-/* ANIMATION */
+/*********** ANIMATION ***********/
 
 .vibrate
 {
