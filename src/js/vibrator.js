@@ -127,6 +127,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	/** display the customization section */
 	function onCustomizationClick ()
 	{
+		stopVibrations();
 		displayedSection.classList.add("hidden");
 		lastDisplayedSection = displayedSection;
 		displayedSection = customsec;
@@ -172,6 +173,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	{
 		vibrations[datas.CUSTOM] = listvibes.onSave();
 		localStorage.setItem(vibrations[datas.CUSTOM].name, JSON.stringify(vibrations[datas.CUSTOM]));
+		stopVibrations();
+		document.querySelector("#b" + datas.CUSTOM).click();
 		onDisplayMain();
 	}
 
