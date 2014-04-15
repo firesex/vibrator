@@ -24,11 +24,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	"use strict";
 	// global variables for the script
 	var vibrations; // the different objects Vibration stored in datas.json
-	var idInterval = 0; // the id of the function in the interval in order to stop the interval
-	var currentVib = null; // the current object Vibration running. if none, === null
-	var currentButton = null; // the current button in action (null if none)
-	var anim = document.querySelector("#main"); // the animation to run
-	var description = document.querySelector("#description"); // where to write the description of a button
 
 	// wait for translation
 
@@ -37,14 +32,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	datas.ARRAY = null; //freed
 
 	// get the user's customization from the localstorage
-	var persoSaved = localStorage.getItem(vibrations[datas.CUSTOM]);
-	console.log(persoSaved);
+	var persoSaved = localStorage.getItem(vibrations[datas.CUSTOM].name);
+
 	if (persoSaved !== null)
-		vibrations[datas.CUSTOM] = Vibrations.createVibes(persoSaved);
+		vibrations[datas.CUSTOM] = Vibration.createVibes(JSON.parse(persoSaved));
 	persoSaved = null; // freed
+	var listvibes = new ListVibes(vibrations[datas.CUSTOM]); // we load it
 
 	// insert the buttons in the webpage
 	var ul = document.createElement("ul"), li, button;
+	ul.classList.add("buttonList");
 	var i;
 	
 	for (i = 0; i < datas.LENGTH; i++)
@@ -53,7 +50,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		button = document.createElement("button");
 		button.setAttribute("type", "button");
 		button.setAttribute("id", "b" + i);
-		button.setAttribute("class", "unactive");
+		button.classList.add("unactive");
 		button.appendChild(document.createTextNode(vibrations[i].name));
 		button.addEventListener("click", startVibrations);
 		li.appendChild(button);
@@ -61,9 +58,137 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	}
 	document.querySelector("#buttons").appendChild(ul);
 
+	// setup UI
+		// battery
+	var battery = document.querySelector("#battery button"); // the place where display the battery level
+	navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
+	navigator.battery.addEventListener("levelchange", updateBatteryStatus);
+	updateBatteryStatus();
+		// buttons
+	var helpbtn = document.querySelector("#helpbtn"); // button "?"
+	var contentsec = document.querySelector("#contents"); // main section
+	var helpsec = document.querySelector("#helpsec"); // help section
+	var customsec = document.querySelector("#customization"); // customization section
+
+	var howtobtn = document.querySelector("#howtobtn"); // button howto in the help section
+	var aboutbtn = document.querySelector("#aboutbtn"); // button about in the help section
+	var howtosec = document.querySelector("#howto"); // howto section in the help section
+	var aboutsec = document.querySelector("#about"); // about section in the help section
+	
+	helpbtn.addEventListener("click", onHelpClick);
+	howtobtn.addEventListener("click", onHowtoClick);
+	aboutbtn.addEventListener("click", onAboutClick);
+	document.querySelector("#save").addEventListener("click", onDisplayMain);
+	// custom buttons
+	document.querySelector("#save").addEventListener("click", onSaveCustom);
+	document.querySelector("#cancel").addEventListener("click", onCancelCustom);
+	document.querySelector("#addVibes").addEventListener("click", listvibes.addVibes);
+
 	// callbacks for UI actions
+		// battery
+	/** update the battery state */
+	function updateBatteryStatus ()
+	{
+		var str = "Battery: ";
+
+		if (navigator.battery.charging)
+			str += "charging";
+		else
+			str += navigator.battery.level * 100 + "%";
+		battery.innerHTML = str;
+	}
+
+		// buttons
+	var displayedSection = contentsec;
+	var lastDisplayedSection = displayedSection;
+
+	/** display the help section */
+	function onHelpClick ()
+	{
+		if (displayedSection === helpsec) // hide the help section
+		{
+			helpsec.classList.add("hidden");
+			displayedSection = lastDisplayedSection;
+			displayedSection.classList.remove("hidden");
+			lastDisplayedSection = helpsec;
+			helpbtn.classList.remove("active");
+		}
+		else // display the help section
+		{
+			displayedSection.classList.add("hidden");
+			lastDisplayedSection = displayedSection;
+			displayedSection = helpsec;
+			helpsec.classList.remove("hidden");
+			helpbtn.classList.add("active");
+			onHowtoClick();
+		}
+	}
+
+	/** display the customization section */
+	function onCustomizationClick ()
+	{
+		displayedSection.classList.add("hidden");
+		lastDisplayedSection = displayedSection;
+		displayedSection = customsec;
+		customsec.classList.remove("hidden");
+	}
+
+	/** display the main (contents) section */
+	function onDisplayMain ()
+	{
+		displayedSection.classList.add("hidden");
+		lastDisplayedSection = displayedSection;
+		displayedSection = contentsec;
+		contentsec.classList.remove("hidden");
+	}
+
+	/** in the help section, display the howto article */
+	function onHowtoClick ()
+	{
+		if (!howtobtn.classList.contains("active")) // button not already active
+		{
+			howtobtn.classList.add("active");
+			aboutbtn.classList.remove("active");
+			aboutsec.classList.add("hidden");
+			howtosec.classList.remove("hidden");
+		}
+	}
+
+	/** in the help section, display the about article */
+	function onAboutClick ()
+	{
+		if (!aboutbtn.classList.contains("active")) // button not already active
+		{
+			aboutbtn.classList.add("active");
+			howtobtn.classList.remove("active");
+			howtosec.classList.add("hidden");
+			aboutsec.classList.remove("hidden");
+		}
+	}
+
+	// custom buttons
+	/** save the custom vibration in local storage, load it and show the main screen */
+	function onSaveCustom ()
+	{
+		vibrations[datas.CUSTOM] = listvibes.onSave();
+		localStorage.setItem(vibrations[datas.CUSTOM].name, JSON.stringify(vibrations[datas.CUSTOM]));
+		onDisplayMain();
+	}
+
+	/** reset the custom gui and return to the main screen */
+	function onCancelCustom ()
+	{
+		listvibes.onCancel();
+		onDisplayMain();
+	}
 
 	// callbacks functions
+	var currentVib = null; // the current object Vibration running. if none, === null
+	var currentButton = null; // the current button in action (null if none)
+	var anim = document.querySelector("#main"); // the animation to run
+	var description = document.querySelector("#description"); // where to write the description of a button
+
+	/** start to vibrate after a click on a button */
 	function startVibrations (event)
 	{
 		var index = parseInt(event.target.getAttribute("id").slice(1), 10);
@@ -75,54 +200,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 		currentButton.removeEventListener("click", startVibrations);
 		currentButton.addEventListener("click", stopVibrations);
-		currentButton.className = "active";
+		currentButton.classList.remove("unactive");
+		currentButton.classList.add("active");
 		anim.classList.add("vibrate");
 		description.innerHTML = currentVib.description;
 		if (index === datas.CUSTOM)
-			;
+			description.addEventListener("click", onCustomizationClick);
 		if (index === datas.MMH)
-			vibrateRandom(); // set idInterval in it
+			currentVib.startVibrationRandom(); // set idInterval in it
 		else
-			idInterval = setInterval(vibrate, currentVib.time);
+			currentVib.startVibration();
 	}
 
+	/** ends the vibration */
 	function stopVibrations ()
 	{
-		navigator.vibrate(0);
-		clearInterval(idInterval);
-		idInterval = 0;
+		if (currentVib !== null)
+			currentVib.stopVibration();
+		description.removeEventListener("click", onCustomizationClick);
 		if (currentButton !== null)
 		{
 			currentButton.removeEventListener("click", stopVibrations);
 			currentButton.addEventListener("click", startVibrations);
-			currentButton.className = "unactive";
+			currentButton.classList.remove("active");
+			currentButton.classList.add("unactive");
 		}
 		anim.classList.remove("vibrate");
 		description.innerHTML = "";
 		currentButton = null;
 		currentVib = null;
-	}
-	
-
-	function vibrate ()
-	{
-		navigator.vibrate(currentVib.vibes);
-	}
-
-	function vibrateRandom ()
-	{
-		// random config
-		var i;
-		clearInterval(idInterval);
-		for (i = 0; i < currentVib.vibes.length; i++)
-		{
-			if (i % 2 === 0)
-				currentVib.vibes[i] = Math.round(Math.random() * 950 + 50);
-			else
-				currentVib.vibes[i] = Math.round(Math.random() * 500 + 50);
-		}
-		idInterval = setInterval(vibrateRandom, currentVib.time);
-		vibrate();
 	}
 })();
 

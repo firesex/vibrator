@@ -28,6 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 function Vibration (copy)
 {
 	var cpName = "", cpDescr = "", cpVibes = [];
+	var idInterval = -1;
 
 	if (typeof copy !== "undefined")
 	{
@@ -59,14 +60,72 @@ function Vibration (copy)
 		},
 
 		/** @return the total time of vibrations stored in vibes (o(n)) */
-		"time": { get: function () {
-					var i, time = 0;
-					for (i = 0; i < this.vibes.length; i++)
-						time += this.vibes[i];
-					return time;
-				}
+		"time": {
+			get: function () {
+				var i, time = 0;
+				for (i = 0; i < this.vibes.length; i++)
+					time += this.vibes[i];
+				return time;
+			}
+		},
+
+		/** @return true if the object is currently vibrating */
+		"isVibrating": {
+			get: function() { return idInterval !== -1; }
+		},
+
+		/** make the object vibrate with the values in the vibes array */
+		"startVibration": {
+			value: function () {
+				idInterval = setInterval(vibrate, this.time);
+				vibrate();
+			}
+		},
+
+		/** make the object vibrate with values picked up in the vibes array randomly */
+		"startVibrationRandom": {
+			value: function () {
+				idInterval = setInterval(vibrateRandom, this.time);
+				vibrateRandom();
+			}
+		},
+
+		/** stop the vibrations */
+		"stopVibration": {
+			value: function () {
+				navigator.vibrate(0);
+				clearInterval(idInterval);
+				idInterval = -1;
+			}
 		}
 	});
+
+	/** 
+	 * callback function used to make the phone virate, called by the interval
+	 * @param values: make vibrate with these values. if not given, use the array this.vibes
+	 */
+	var vibrate = function (values)
+	{
+		if (typeof values === "undefined")
+			values = this.vibes;
+		navigator.vibrate(values);
+	};
+	vibrate = vibrate.bind(this);
+
+	/** each time this function is called, create 5 vibrations taken in the vibes array and call vibrate() */
+	var vibrateRandom = function ()
+	{
+		var i, values = [], time = 0;
+		clearInterval(idInterval);
+		for (i = 0; i < 5; i++)
+		{
+			values[i] = this.vibes[Math.round(Math.random() * this.vibes.length)];
+			time += values[i];
+		}
+		idInterval = setInterval(vibrateRandom, time);
+		vibrate(values);
+	};
+	vibrateRandom = vibrateRandom.bind(this);
 }
 
 /**

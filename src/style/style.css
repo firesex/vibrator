@@ -19,6 +19,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/*********** GLOBAL ***********/
+
 html, body
 {
 	height: 100%;
@@ -34,17 +36,25 @@ body
 	flex-flow: column;
 	background-color: #e887e8;
 	color: white;
+	text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.5);
 }
 
 header, footer
 {
 	flex-grow: 0;
+	flex-shrink: 0;
 }
 
 header
 {
-	background-color: rgba(255, 255, 255, 0.2);
+	order: 0;
 	margin-bottom: 1%;
+}
+
+footer
+{
+	order: 30;
+	margin-top: auto;
 }
 
 footer p
@@ -53,19 +63,188 @@ footer p
 	margin-top: 0.5%;
 }
 
-#content
+button
+{
+	color: white;
+	text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+	background-color: rgba(255, 255, 255, 0.3);
+	border: none;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: bold;
+	padding: 0.5rem;
+	width: 100%;
+}
+
+button:active, button.active
+{
+	background-color: rgba(0, 0, 0, 0.5);
+	text-shadow: 0 0 0.5rem white;
+}
+
+.text
+{
+	background-color: rgba(255, 255, 255, 0.2);
+	min-height: 1.5rem;
+}
+
+.contents
 {
 	flex-grow: 1;
+	flex-shrink: 1;
+	order: 20;
 	display: flex;
 	flex-flow: column;
+}
+
+.contents article
+{
+	overflow: auto;
+}
+
+.hidden
+{
+	display: none !important;
+}
+
+ul.buttonList
+{
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	flex-wrap: wrap;
+}
+
+.buttonList li
+{
+	list-style: none;
+	display: inline-block;
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	border-left: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.buttonList li:first-child
+{
+	border-left: none;
+}
+
+.buttonList li:last-child
+{
+	border-right: none;
+}
+
+ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent button
+{
+	height: 100%;
+	flex-wrap: nowrap;
+}
+
+/*********** MAIN HEADER ***********/
+
+#mainHeader button
+{
+	font-size: 3rem;
+}
+
+#mainHeader li:first-child
+{
+	width: 100%;
+	text-align: left;
+}
+
+#mainHeader h1
+{
+	font-size: 2rem;
+	margin-left: 1rem;
+}
+
+/*********** BATTERY ***********/
+
+#battery
+{
+	margin-left: auto;
+}
+
+#battery button
+{
+	text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5) !important;
+	background-color: rgba(0, 0, 0, 0) !important;
+	font-size: 1.5rem !important;
+}
+
+/*********** HELP SECTION ***********/
+
+#helpsec
+{
+	background: url(images/massage-resize.jpg) no-repeat bottom right;
+	background-size: cover;
+}
+
+#helpsec .buttonList li, #customization .buttonList li
+{
+	flex-grow: 1;
+}
+
+/*********** CUSTOMIZATION SECTION ***********/
+
+ul#vibes
+{
+	text-align: left;
+}
+
+#vibes li
+{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#vibes li:first-child
+{
+	border-top: none;
+}
+
+#vibes li:last-child
+{
+	border-bottom: none;
+}
+
+
+#vibes li:nth-child(odd)
+{
+	list-style-image: url(images/smartphone_navy-vibratemini.png);
+}
+
+#vibes li:nth-child(odd):after
+{
+	content: "Vibrate";
+}
+
+#vibes li:nth-child(even)
+{
+	list-style-image: url(images/smartphone_navy-mini.png);
+}
+
+#vibes li:nth-child(even):after
+{
+	content: "Pause";
+}
+
+/*********** MAIN SECTION ***********/
+
+#contents
+{
 	background: url(images/left1.svg) no-repeat left, url(images/right1.svg) no-repeat right;
 }
 
 #main
 {
 	flex-grow: 1;
+	flex-shrink: 1;
 	background: url(images/Glass_Dildo2.png) no-repeat center center;
 	background-size: contain;
+	margin: 0.5%;
 }
 
 #left, #right
@@ -86,53 +265,43 @@ footer p
 #buttons, #description
 {
 	flex-grow: 0;
-	flex-wrap: wrap;
+	flex-shrink: 0;
 }
 
 #description
 {
-	min-height: 1.5rem;
 	font-size: 1rem;
 	margin: 0;
 	padding: 0.25rem;
 }
 
-#buttons ul
-{
-	margin: 0;
-	padding: 0;
-}
-
 #buttons li
 {
-	list-style: none;
+	border: none;
 	padding-left: 0.2rem;
 	padding-right: 0.2rem;
-	display: inline-block;
 }
 
-button, button.unactive
+#buttons button, #buttons button.unactive
 {
 	box-shadow: inset 0px 1px 1px 0px #ffd4f2;
-	color: white;
 	background: -moz-linear-gradient(center top, #ffa6d5 5%, #ef027d 100%);
 	background-color: #ffa6d5;
 	border-radius: 2rem;
 	border: 1px solid #ee1eb5;
-	font-family: Arial;
 	font-size: 1rem;
 	font-style: normal;
 	text-shadow: 0.25rem 0.25rem 0.1rem #c70067;
 	padding: 0.5rem;
 }
 
-button.active, button:ACTIVE
+#buttons button.active, #buttons button:active
 {
 	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);
 	background-color: #ef027d;
 }
 
-/* ANIMATION */
+/*********** ANIMATION ***********/
 
 .vibrate
 {
