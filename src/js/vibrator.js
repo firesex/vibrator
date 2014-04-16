@@ -24,11 +24,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	"use strict";
 	// global variables for the script
 	var vibrations; // the different objects Vibration stored in datas.json
+	var i;
 
 	// wait for translation
 
 	// get vibrations from datas.json
 	vibrations = datas.ARRAY.map(function(el) { return Vibration.createVibes(el); });
+	while (datas.ARRAY.length > 0)
+		datas.ARRAY.pop();
 	datas.ARRAY = null; //freed
 
 	// get the user's customization from the localstorage
@@ -42,7 +45,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// insert the buttons in the webpage
 	var ul = document.createElement("ul"), li, button;
 	ul.classList.add("buttonList");
-	var i;
 	
 	for (i = 0; i < datas.LENGTH; i++)
 	{
@@ -94,7 +96,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		if (navigator.battery.charging)
 			str += "charging";
 		else
-			str += navigator.battery.level * 100 + "%";
+			str += Math.round(navigator.battery.level * 100) + "%";
 		battery.innerHTML = str;
 	}
 

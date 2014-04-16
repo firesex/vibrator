@@ -50,7 +50,6 @@ function DOMVibration (insertButton)
 	this.input = document.createElement("input");
 	this.input.setAttribute("type", "number");
 	this.input.setAttribute("required", "required");
-	this.input.setAttribute("autofocus", "autofocus");
 	this.input.setAttribute("min", "50");
 	this.input.setAttribute("max", "1000");
 	this.input.setAttribute("placeholder", "50 to 1000");
@@ -108,6 +107,10 @@ function ListVibes (vibration)
 					}
 					ul.appendChild(vibrations[index].li);
 				}
+				if (vibrations.length < 10)
+					document.querySelector("#addVibes").classList.remove("hidden");
+				else
+					document.querySelector("#addVibes").classList.add("hidden");
 			}.bind(this)
 		},
 
@@ -123,8 +126,14 @@ function ListVibes (vibration)
 	/** remove the li at the given index */
 	var removeVibes = function (index)
 	{
+		var i;
+
 		ul.removeChild(vibrations[index].li);
 		vibrations.splice(index, 1);
+		for (i = index; i < vibrations.length; i++)
+			vibrations[i].button.setAttribute("id", "customBtn" + i);
+		if (vibrations.length < 10)
+			document.querySelector("#addVibes").classList.remove("hidden");
 	};
 
 	/** @return the new customized vibration */
@@ -133,7 +142,8 @@ function ListVibes (vibration)
 		var i, j = 0, input;
 		var customized = new Vibration(initValue)
 
-		customized.vibes.length = 0; // clear the array
+		while (customized.vibes.length > 0)
+			customized.vibes.pop(); // clear the array
 		for (i = 0; i < vibrations.length; i++)
 		{
 			input = vibrations[i].input;
@@ -143,7 +153,7 @@ function ListVibes (vibration)
 				j++;
 			}
 			else
-				removeVibes(i);
+				removeVibes(i--);
 		}
 		return customized;
 	};

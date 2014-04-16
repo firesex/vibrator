@@ -34,7 +34,7 @@ function Vibration (copy)
 	{
 		cpName = copy.name || "";
 		cpDescr = copy.description || "";
-		cpVibes = copy.vibes || [];
+		cpVibes = typeof copy.vibes === "undefined" ? [] : copy.vibes.slice(0);
 	}
 
 	Object.defineProperties(this, {

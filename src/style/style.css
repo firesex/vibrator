@@ -39,6 +39,12 @@ body
 	text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.5);
 }
 
+p
+{
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
 header, footer
 {
 	flex-grow: 0;
@@ -72,7 +78,7 @@ button
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: bold;
-	padding: 0.5rem;
+	padding: 0.75rem;
 	width: 100%;
 }
 
@@ -148,6 +154,12 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 	font-size: 3rem;
 }
 
+#helpbtn
+{
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
 #mainHeader li:first-child
 {
 	width: 100%;
@@ -180,6 +192,7 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 {
 	background: url(images/massage-resize.jpg) no-repeat bottom right;
 	background-size: cover;
+	text-align: justify;
 }
 
 #helpsec .buttonList li, #customization .buttonList li
@@ -189,13 +202,23 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 
 /*********** CUSTOMIZATION SECTION ***********/
 
-ul#vibes
+#customization .text
 {
 	text-align: left;
 }
 
+ul#vibes
+{
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+
 #vibes li
 {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -205,30 +228,55 @@ ul#vibes
 	border-top: none;
 }
 
-#vibes li:last-child
+#vibes li:nth-child(odd):before
 {
-	border-bottom: none;
+	content: url(images/smartphone_navy-vibratemini.png);
+	padding: 1%;
 }
 
-
-#vibes li:nth-child(odd)
+#vibes li:nth-child(even):before
 {
-	list-style-image: url(images/smartphone_navy-vibratemini.png);
+	content: url(images/smartphone_navy-mini.png);
+	padding: 1%;
 }
 
-#vibes li:nth-child(odd):after
+#vibes input
 {
-	content: "Vibrate";
+	flex-grow: 1;
+	background: url(images/edit.svg) no-repeat right, transparent;
+	padding-right: 2rem;
+	margin-right: 1%;
+	border: none;
+	height: 2.5em;
 }
 
-#vibes li:nth-child(even)
+#vibes input:focus, #vibes input:hover
 {
-	list-style-image: url(images/smartphone_navy-mini.png);
+	background: rgba(255, 255, 255, 0.5);
 }
 
-#vibes li:nth-child(even):after
+#vibes button
 {
-	content: "Pause";
+	flex-grow: 0;
+	flex-shrink: 0;
+	border-left: 1px solid rgba(255, 255, 255, 0.75);
+	margin-left: auto;
+	width: auto;
+}
+
+button#addVibes
+{
+	border-top: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+#customization article
+{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#customization footer
+{
+	border-top: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 /*********** MAIN SECTION ***********/
@@ -292,7 +340,6 @@ ul#vibes
 	font-size: 1rem;
 	font-style: normal;
 	text-shadow: 0.25rem 0.25rem 0.1rem #c70067;
-	padding: 0.5rem;
 }
 
 #buttons button.active, #buttons button:active
