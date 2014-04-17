@@ -54,6 +54,7 @@ function DOMVibration (insertButton)
 	this.input.setAttribute("max", "1000");
 	this.input.setAttribute("placeholder", "50 to 1000");
 	this.li = document.createElement("li");
+	this.li.classList.add("apparences");
 	this.li.appendChild(this.input);
 	if (insertButton)
 	{
