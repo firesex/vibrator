@@ -91,13 +91,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	/** update the battery state */
 	function updateBatteryStatus ()
 	{
-		var str = "Battery: ";
-
 		if (navigator.battery.charging)
-			str += "charging";
+			battery.innerHTML = "plugged";
 		else
-			str += Math.round(navigator.battery.level * 100) + "%";
-		battery.innerHTML = str;
+			battery.innerHTML = Math.round(navigator.battery.level * 100) + "%";
 	}
 
 		// buttons

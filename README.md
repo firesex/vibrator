@@ -17,10 +17,16 @@ Licensing
 
 The program and its sources are released under the GNU GPLv3 (see the LICENSE file).
 
-All the used images have been created by OpenClips and released under the CC0 (Creative Commons public domain):
+All the used images of girls have been created by OpenClips and released under the CC0 (Creative Commons public domain):
 http://pixabay.com/en/users/OpenClips/
 
 Except for the file "Glass_Dildo.JPG" which has been created by JennyD and released under the CC-BY license:
 https://commons.wikimedia.org/wiki/File:Glass_Dildo.JPG
-and "massage.jpg" which has been created by Lucas Frasca and released under the CC-BY-NC-SA license: https://secure.flickr.com/photos/lucasfrasca/12405482565
-and "smartphone_navy.png" which has been created by agomjo and released in the public domain: https://openclipart.org/detail/191409/smartphone-display-color-navy-by-agomjo-191409
+
+"massage.jpg" has been created by Lucas Frasca and released under the CC-BY-NC-SA license: https://secure.flickr.com/photos/lucasfrasca/12405482565
+
+"smartphone_navy.png" has been created by agomjo and released in the public domain: https://openclipart.org/detail/191409/smartphone-display-color-navy-by-agomjo-191409
+
+"battery.svg" has been created by (an) Anonymous and is released in the punlic domain: https://openclipart.org/detail/116089/ftlaptop-battery-by-anonymous
+
+"edit.svg" has certainly been created by Fawad Hassan and Robert Nyman for their example of Todo Firefox OS application: https://hacks.mozilla.org/2013/06/building-a-todo-app-for-firefox-os-part-1/

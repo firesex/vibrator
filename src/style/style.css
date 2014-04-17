@@ -158,6 +158,7 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 
 #helpbtn
 {
+	padding: 0;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 }
@@ -184,16 +185,17 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 #battery button
 {
 	text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5) !important;
-	background-color: rgba(0, 0, 0, 0) !important;
+	background: url(images/battery.png) center center / 100% 100% no-repeat, transparent;
 	font-size: 1.5rem !important;
+	padding-left: 2rem;
+	padding-right: 3.5rem;
 }
 
 /*********** HELP SECTION ***********/
 
 #helpsec
 {
-	background: url(images/massage-resize.jpg) no-repeat bottom right;
-	background-size: cover;
+	background: url(images/massage-resize.jpg) bottom right / cover no-repeat;
 	text-align: justify;
 }
 
@@ -245,7 +247,7 @@ ul#vibes
 #vibes input
 {
 	flex-grow: 1;
-	background: url(images/edit.svg) no-repeat right, transparent;
+	background: url(images/edit.svg) right no-repeat, transparent;
 	padding-right: 2rem;
 	margin-right: 1%;
 	border: none;
@@ -285,14 +287,14 @@ button#addVibes
 
 #contents
 {
-	background: url(images/left1.svg) no-repeat left, url(images/right1.svg) no-repeat right;
+	background: url(images/left1.svg) left no-repeat, url(images/right1.svg) right no-repeat;
 }
 
 #main
 {
 	flex-grow: 1;
 	flex-shrink: 1;
-	background: url(images/Glass_Dildo2.png) no-repeat center center;
+	background: url(images/Glass_Dildo2.png) center center no-repeat;
 	background-size: contain;
 	margin: 0.5%;
 }
