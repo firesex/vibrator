@@ -260,13 +260,15 @@ ul#vibes
 #vibes li:nth-child(odd):before
 {
 	content: url(images/smartphone_navy-vibratemini.png);
-	padding: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
 }
 
 #vibes li:nth-child(even):before
 {
 	content: url(images/smartphone_navy-mini.png);
-	padding: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
 }
 
 #vibes input
@@ -340,12 +342,14 @@ button#cancel
 {
 	position: absolute;
 	font-size: 1.5rem;
+	min-widht: 10rem;
 }
 
 #left
 {
 	left: 3%;
 	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
 }
 
 #right
@@ -360,6 +364,7 @@ button#cancel
 #right p
 {
 	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
 }
 
 #STOP
@@ -401,6 +406,7 @@ button#cancel
 {
 	box-shadow: inset 0px 1px 1px 0px #ffd4f2;
 	background: -moz-linear-gradient(center top, #ffa6d5 5%, #ef027d 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffa6d5), color-stop(1, #ef027d));
 	background-color: #ffa6d5;
 	border-radius: 2rem;
 	padding: 0.75rem;
@@ -413,6 +419,7 @@ button#cancel
 #buttons button.active, #buttons button:active
 {
 	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ef027d), color-stop(1, #ffa6d5));
 	background-color: #ef027d;
 }
 
@@ -423,8 +430,21 @@ button#cancel
 {
 	animation-name: apparition;
 	animation-duration: 1s;
+	-webkit-animation-name: apparition;
+	-webkit-animation-duration: 1s;
 }
 @keyframes apparition
+{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}
+@-webkit-keyframes apparition
 {
 	from
 	{
@@ -443,8 +463,39 @@ button#cancel
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 	animation-play-state: running;
+	-webkit-animation-name: dildo;
+	-webkit-animation-duration: 2000ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-play-state: running;
 }
 @keyframes dildo
+{
+	from
+	{
+		margin-right: 0;
+		margin-left: 5%;
+	}
+
+	33%
+	{
+		margin-left: 0;
+		margin-right: 10%;
+	}
+
+	67%
+	{
+		margin-right: 0;
+		margin-left: 10%;
+	}
+
+	to
+	{
+		margin-left: 0;
+		margin-right: 10%;
+	}
+}
+@-webkit-keyframes dildo
 {
 	from
 	{

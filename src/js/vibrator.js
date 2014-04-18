@@ -63,9 +63,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// setup UI
 		// battery
 	var battery = document.querySelector("#battery button"); // the place where display the battery level
-	navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
-	navigator.battery.addEventListener("levelchange", updateBatteryStatus);
-	updateBatteryStatus();
+	if (navigator.battery)
+	{
+		navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
+		navigator.battery.addEventListener("levelchange", updateBatteryStatus);
+		updateBatteryStatus();
+	}
+	else
+		battery.innerHTML = "?";
 		// buttons
 	var helpbtn = document.querySelector("#helpbtn"); // button "?"
 	var contentsec = document.querySelector("#contents"); // main section
