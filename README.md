@@ -17,6 +17,8 @@ Licensing
 
 The program and its sources are released under the GNU GPLv3 (see the LICENSE file).
 
+The font used is "Cartoonist Hand", created by ShyFonts and released under [http://www.fontsquirrel.com/license/SF-Cartoonist-Hand](ShyFonts font license).
+
 All the used images of girls have been created by OpenClips and released under the CC0 (Creative Commons public domain):
 http://pixabay.com/en/users/OpenClips/
 
@@ -29,4 +31,4 @@ https://commons.wikimedia.org/wiki/File:Glass_Dildo.JPG
 
 "battery.svg" has been created by (an) Anonymous and is released in the punlic domain: https://openclipart.org/detail/116089/ftlaptop-battery-by-anonymous
 
-"edit.svg" has certainly been created by Fawad Hassan and Robert Nyman for their example of Todo Firefox OS application: https://hacks.mozilla.org/2013/06/building-a-todo-app-for-firefox-os-part-1/
+"edit.svg", "add.svg", "del.svg" and "check.svg" have certainly been created by Fawad Hassan and Robert Nyman for their example of Todo Firefox OS application: https://hacks.mozilla.org/2013/06/building-a-todo-app-for-firefox-os-part-1/

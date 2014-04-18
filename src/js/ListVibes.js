@@ -60,7 +60,6 @@ function DOMVibration (insertButton)
 	{
 		this.button = document.createElement("button");
 		this.button.setAttribute("type", "button");
-		this.button.innerHTML = "Remove";
 		this.li.appendChild(this.button);
 	}
 }
