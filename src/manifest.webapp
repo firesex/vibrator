@@ -9,6 +9,13 @@
 	"installs_allowed_from": [ "https://marketplace.firefox.com" ],
 	"launch_path": "/vibrator/src/index.html",
 	"icons": {
+		"32": "/style/icons/icon32.png",
+		"60": "/style/icons/icon60.png",
+		"64": "/style/icons/icon64.png",
+		"90": "/style/icons/icon90.png",
+		"120": "/style/icons/icon120.png",
+		"128": "/style/icons/icon128.png",
+		"256": "/style/icons/icon256.png"
 	},
 	"fullscreen": "true",
 	"permissions": {

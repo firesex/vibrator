@@ -21,12 +21,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /*********** GLOBAL ***********/
 
+@font-face
+{
+	font-family: Cartoonist;
+	src: url("fonts/SF_Cartoonist_Hand-webfont.woff");
+}
+@font-face
+{
+	font-family: Cartoonist;
+	src: url("fonts/SF_Cartoonist_Hand_Bold-webfont.woff");
+	font-weight: bold;
+}
+
 html, body
 {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-size: 100%;
+	font-family: Cartoonist, Arial, sans-serif;
+	font-size: 110%;
 	text-align: center;
 }
 
@@ -73,13 +86,17 @@ button
 {
 	color: white;
 	text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+	text-align: center !important;
 	background-color: rgba(255, 255, 255, 0.3);
 	border: none;
+	font-family: Cartoonist, Arial, sans-serif;
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: bold;
-	padding: 0.75rem;
+	padding: 0.3rem;
 	width: 100%;
+	min-height: 2rem;
+	transition: all 0.5s;
 }
 
 button:active, button.active
@@ -91,7 +108,7 @@ button:active, button.active
 .text
 {
 	background-color: rgba(255, 255, 255, 0.2);
-	min-height: 1.5rem;
+	min-height: 1.2rem;
 }
 
 .contents
@@ -111,6 +128,7 @@ button:active, button.active
 .hidden
 {
 	display: none !important;
+	opacity: 0;
 }
 
 ul.buttonList
@@ -151,11 +169,12 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 
 #mainHeader button
 {
-	font-size: 3rem;
+	font-size: 2rem;
 }
 
 #helpbtn
 {
+	padding: 0;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 }
@@ -168,8 +187,11 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 
 #mainHeader h1
 {
-	font-size: 2rem;
+	margin: 0;
 	margin-left: 1rem;
+	padding: 0;
+	padding-top: 0.25rem;
+	font-size: 1.5rem;
 }
 
 /*********** BATTERY ***********/
@@ -182,16 +204,17 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 #battery button
 {
 	text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5) !important;
-	background-color: rgba(0, 0, 0, 0) !important;
-	font-size: 1.5rem !important;
+	background: url(images/battery.svg) center center / 100% 100% no-repeat, transparent;
+	font-size: 1rem !important;
+	padding-left: 2em;
+	padding-right: 2.5em;
 }
 
 /*********** HELP SECTION ***********/
 
 #helpsec
 {
-	background: url(images/massage-resize.jpg) no-repeat bottom right;
-	background-size: cover;
+	background: url(images/massage-resize.jpg) bottom right / cover no-repeat;
 	text-align: justify;
 }
 
@@ -202,9 +225,15 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 
 /*********** CUSTOMIZATION SECTION ***********/
 
+#customization
+{
+	background: url(images/right2.svg) center / contain no-repeat;
+}
+
 #customization .text
 {
 	text-align: left;
+	margin: 0;
 }
 
 ul#vibes
@@ -231,23 +260,25 @@ ul#vibes
 #vibes li:nth-child(odd):before
 {
 	content: url(images/smartphone_navy-vibratemini.png);
-	padding: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
 }
 
 #vibes li:nth-child(even):before
 {
 	content: url(images/smartphone_navy-mini.png);
-	padding: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
 }
 
 #vibes input
 {
 	flex-grow: 1;
-	background: url(images/edit.svg) no-repeat right, transparent;
+	background: url(images/edit.svg) right / contain no-repeat, transparent;
 	padding-right: 2rem;
 	margin-right: 1%;
 	border: none;
-	height: 2.5em;
+	height: 1.5rem;
 }
 
 #vibes input:focus, #vibes input:hover
@@ -262,11 +293,24 @@ ul#vibes
 	border-left: 1px solid rgba(255, 255, 255, 0.75);
 	margin-left: auto;
 	width: auto;
+	min-width: 2rem;
+	background: url(images/del.svg) center center / contain no-repeat, rgba(255, 255, 255, 0.2);
 }
 
 button#addVibes
 {
+	background: url(images/add.svg) center center / contain no-repeat, rgba(255, 255, 255, 0.2);
 	border-top: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+button#save
+{
+	background: url(images/check.svg) center center / contain no-repeat;
+}
+
+button#cancel
+{
+	background: url(images/del.svg) center center / contain no-repeat;
 }
 
 #customization article
@@ -283,31 +327,59 @@ button#addVibes
 
 #contents
 {
-	background: url(images/left1.svg) no-repeat left, url(images/right1.svg) no-repeat right;
+	background: url(images/left1.svg) left / contain no-repeat, url(images/right1.svg) right / contain no-repeat;
 }
 
 #main
 {
 	flex-grow: 1;
 	flex-shrink: 1;
-	background: url(images/Glass_Dildo2.png) no-repeat center center;
-	background-size: contain;
+	background: url(images/Glass_Dildo1.png) center center / auto 90% no-repeat;
 	margin: 0.5%;
 }
 
 #left, #right
 {
 	position: absolute;
+	font-size: 1.5rem;
+	min-widht: 10rem;
 }
 
 #left
 {
-	left: 1%;
+	left: 3%;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
 }
 
 #right
 {
-	right: 1%;
+	right: 3%;
+	height: 40%;
+	display: flex;
+	flex-flow: column;
+	align-items: flex-end;
+}
+
+#right p
+{
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+#STOP
+{
+	margin-top: auto;
+	padding: 1%;
+	border: 1px white solid;
+	border-radius: 1.5rem;
+	background: red;
+}
+
+#STOP button
+{
+	border: 1px white solid;
+	border-radius: 2rem;
 }
 
 #buttons, #description
@@ -334,8 +406,10 @@ button#addVibes
 {
 	box-shadow: inset 0px 1px 1px 0px #ffd4f2;
 	background: -moz-linear-gradient(center top, #ffa6d5 5%, #ef027d 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffa6d5), color-stop(1, #ef027d));
 	background-color: #ffa6d5;
 	border-radius: 2rem;
+	padding: 0.75rem;
 	border: 1px solid #ee1eb5;
 	font-size: 1rem;
 	font-style: normal;
@@ -345,10 +419,42 @@ button#addVibes
 #buttons button.active, #buttons button:active
 {
 	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ef027d), color-stop(1, #ffa6d5));
 	background-color: #ef027d;
 }
 
 /*********** ANIMATION ***********/
+
+/* this is not a transition as transition are not easy with display:none */
+.apparences:not(.hidden)
+{
+	animation-name: apparition;
+	animation-duration: 1s;
+	-webkit-animation-name: apparition;
+	-webkit-animation-duration: 1s;
+}
+@keyframes apparition
+{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}
+@-webkit-keyframes apparition
+{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}
 
 .vibrate
 {
@@ -357,8 +463,39 @@ button#addVibes
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 	animation-play-state: running;
+	-webkit-animation-name: dildo;
+	-webkit-animation-duration: 2000ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-play-state: running;
 }
 @keyframes dildo
+{
+	from
+	{
+		margin-right: 0;
+		margin-left: 5%;
+	}
+
+	33%
+	{
+		margin-left: 0;
+		margin-right: 10%;
+	}
+
+	67%
+	{
+		margin-right: 0;
+		margin-left: 10%;
+	}
+
+	to
+	{
+		margin-left: 0;
+		margin-right: 10%;
+	}
+}
+@-webkit-keyframes dildo
 {
 	from
 	{

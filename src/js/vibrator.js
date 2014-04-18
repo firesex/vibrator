@@ -63,9 +63,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// setup UI
 		// battery
 	var battery = document.querySelector("#battery button"); // the place where display the battery level
-	navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
-	navigator.battery.addEventListener("levelchange", updateBatteryStatus);
-	updateBatteryStatus();
+	if (navigator.battery)
+	{
+		navigator.battery.addEventListener("chargingchange", updateBatteryStatus);
+		navigator.battery.addEventListener("levelchange", updateBatteryStatus);
+		updateBatteryStatus();
+	}
+	else
+		battery.innerHTML = "?";
 		// buttons
 	var helpbtn = document.querySelector("#helpbtn"); // button "?"
 	var contentsec = document.querySelector("#contents"); // main section
@@ -85,19 +90,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	document.querySelector("#save").addEventListener("click", onSaveCustom);
 	document.querySelector("#cancel").addEventListener("click", onCancelCustom);
 	document.querySelector("#addVibes").addEventListener("click", listvibes.addVibes);
+	document.querySelector("#stopbtn").addEventListener("click", stopVibrations);
 
 	// callbacks for UI actions
 		// battery
 	/** update the battery state */
 	function updateBatteryStatus ()
 	{
-		var str = "Battery: ";
-
 		if (navigator.battery.charging)
-			str += "charging";
+			battery.innerHTML = "plugged";
 		else
-			str += Math.round(navigator.battery.level * 100) + "%";
-		battery.innerHTML = str;
+			battery.innerHTML = Math.round(navigator.battery.level * 100) + "%";
 	}
 
 		// buttons

@@ -19,13 +19,15 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Mmh Vibrator!</title>
+<link rel="icon" href="style/icons/icon16.png" sizes="16x16"/>
+<link rel="icon" href="style/icons/icon32.png" sizes="32x32"/>
 <meta name="author" content="firesex">
 <meta name="application-name" content="Mmh Vibrator!">
-<meta name="viewport" content="height=device-height, width=device-width" />
+<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
@@ -37,12 +39,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	</ul>
 </header>
 
-<section id="contents" class="contents">
+<section id="contents" class="contents apparences">
 	<section id="main">
 		<div id="left">
-			<p>Lie down and enjoy!</p>
+			<p>Lie down!</p>
 		</div>
 		<div id="right">
+			<p>And enjoy!</p>
+			<div id="STOP"><button type="button" id="stopbtn">STOP</button></div>
 		</div>
 	</section>
 	
@@ -57,38 +61,38 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	</section>
 </section>
 
-<section id="helpsec" class="contents hidden">
+<section id="helpsec" class="contents apparences hidden">
 	<header class="text">
 		<ul class="buttonList centpercent">
 			<li><button type="button" id="howtobtn">HowTo</button></li>
 			<li><button type="button" id="aboutbtn">About</button></li>
 		</ul>
 	</header>
-	<article id="howto">
+	<article id="howto" class="apparences">
 	howto
 	</article>
-	<article id="about" class="hidden">
+	<article id="about" class="apparences hidden">
 	about
 	</article>
 </section>
 
-<section id="customization" class="contents hidden">
+<section id="customization" class="contents apparences hidden">
 	<article>
 		<p class="text">
 			Here you can specify the time of vibration and the time of pause.
 		</p>
-		<div><!-- only used for javascript -->
+		<form>
 			<ul id="vibes">
 				<li>ESSAI1</li>
 				<li>ESSAI2</li>
 			</ul>
-		</div>
-		<button type="button" id="addVibes">ADD</button>
+		</form>
+		<button type="button" id="addVibes"></button>
 	</article>
 	<footer class="text">
 		<ul class="buttonList centpercent">
-			<li><button type="button" id="save">Save</button></li>
-			<li><button type="button" id="cancel">Cancel</button></li>
+			<li><button type="button" id="save"></button></li>
+			<li><button type="button" id="cancel"></button></li>
 		</ul>
 	</footer>
 </section>
@@ -97,7 +101,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<p>Copyright © 2014 <a href="mailto:mmhfiresex@gmail.com" title="contact">firesex</a></p>
 </footer>
 
-<script src="js/resources/datas.json"></script>
+<script src="js/resources/datas.js"></script>
 <script src="js/Vibration.js"></script>
 <script src="js/ListVibes.js"></script>
 <script src="js/vibrator.js"></script>
