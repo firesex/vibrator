@@ -204,7 +204,7 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 #battery button
 {
 	text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5) !important;
-	background: url(images/battery.png) center center / 100% 100% no-repeat, transparent;
+	background: url(images/battery.svg) center center / 100% 100% no-repeat, transparent;
 	font-size: 1rem !important;
 	padding-left: 2em;
 	padding-right: 2.5em;
