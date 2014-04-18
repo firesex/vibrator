@@ -85,6 +85,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	document.querySelector("#save").addEventListener("click", onSaveCustom);
 	document.querySelector("#cancel").addEventListener("click", onCancelCustom);
 	document.querySelector("#addVibes").addEventListener("click", listvibes.addVibes);
+	document.querySelector("#stopbtn").addEventListener("click", stopVibrations);
 
 	// callbacks for UI actions
 		// battery

@@ -344,12 +344,37 @@ button#cancel
 
 #left
 {
-	left: 1%;
+	left: 3%;
+	transform: rotate(-45deg);
 }
 
 #right
 {
-	right: 1%;
+	right: 3%;
+	height: 40%;
+	display: flex;
+	flex-flow: column;
+	align-items: flex-end;
+}
+
+#right p
+{
+	transform: rotate(45deg);
+}
+
+#STOP
+{
+	margin-top: auto;
+	padding: 1%;
+	border: 1px white solid;
+	border-radius: 1.5rem;
+	background: red;
+}
+
+#STOP button
+{
+	border: 1px white solid;
+	border-radius: 2rem;
 }
 
 #buttons, #description
