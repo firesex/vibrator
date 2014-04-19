@@ -21,32 +21,34 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Mmh Vibrator!</title>
-<link rel="icon" href="style/icons/icon16.png" sizes="16x16"/>
-<link rel="icon" href="style/icons/icon32.png" sizes="32x32"/>
-<meta name="author" content="firesex">
-<meta name="application-name" content="Mmh Vibrator!">
-<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="style/style.css" />
+	<meta charset="utf-8">
+	<title data-l10n-id="title">Mmh Vibrator!</title>
+	<link rel="icon" href="style/icons/icon16.png" sizes="16x16"/>
+	<link rel="icon" href="style/icons/icon32.png" sizes="32x32"/>
+	<meta name="author" content="firesex">
+	<meta name="application-name" content="Mmh Vibrator!">
+	<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="style/style.css" />
+	<link rel="localization" href="locales/manifest.json">
+	<script src="js/resources/l20n.min.js"></script>
 </head>
 <body>
 <header id="mainHeader" class="text">
 	<ul class="buttonList centpercent">
-		<li><h1>Mmh Vibrator!</h1></li>
+		<li><h1 data-l10n-id="title">Mmh Vibrator!</h1></li>
 		<li id="battery"><button type="button"></button></li>
-		<li><button type="button" id="helpbtn">?</button></li>
+		<li><button type="button" id="helpbtn" data-l10n-id="helpbtn">?</button></li>
 	</ul>
 </header>
 
 <section id="contents" class="contents apparences">
 	<section id="main">
 		<div id="left">
-			<p>Lie down!</p>
+			<p data-l10n-id="left">Lie down!</p>
 		</div>
 		<div id="right">
-			<p>And enjoy!</p>
-			<div id="STOP"><button type="button" id="stopbtn">STOP</button></div>
+			<p data-l10n-id="right">And enjoy!</p>
+			<div id="STOP"><button type="button" id="stopbtn" data-l10n-id="stopbtn">STOP</button></div>
 		</div>
 	</section>
 	
@@ -64,21 +66,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <section id="helpsec" class="contents apparences hidden">
 	<header class="text">
 		<ul class="buttonList centpercent">
-			<li><button type="button" id="howtobtn">HowTo</button></li>
-			<li><button type="button" id="aboutbtn">About</button></li>
+			<li><button type="button" id="howtobtn" data-l10n-id="howtobtn">HowTo</button></li>
+			<li><button type="button" id="aboutbtn" data-l10n-id="aboutbtn">About</button></li>
 		</ul>
 	</header>
-	<article id="howto" class="apparences">
+	<article id="howto" class="apparences" data-l10n-id="howto">
 	howto
 	</article>
-	<article id="about" class="apparences hidden">
+	<article id="about" class="apparences hidden" data-l10n-id="about">
 	about
 	</article>
 </section>
 
 <section id="customization" class="contents apparences hidden">
 	<article>
-		<p class="text">
+		<p class="text" data-l10n-id="customdescr">
 			Here you can specify the time of vibration and the time of pause.
 		</p>
 		<form>
@@ -98,7 +100,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 </section>
 
 <footer>
-	<p>Copyright © 2014 <a href="mailto:mmhfiresex@gmail.com" title="contact">firesex</a></p>
+	<p data-l10n-id="copyright">Copyright © 2014 <a href="mailto:mmhfiresex@gmail.com" title="contact">firesex</a></p>
 </footer>
 
 <script src="js/resources/datas.js"></script>

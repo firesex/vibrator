@@ -38,14 +38,14 @@ function Vibration (copy)
 	}
 
 	Object.defineProperties(this, {
-		/** the name of the object */
+		/** the name of the object */ // translated
 		"name": {
 			value: cpName,
 			enumerable: true,
 			writable: true
 		},
 
-		/** the description of the object */
+		/** the description of the object */ // translated
 		"description": {
 			value: cpDescr,
 			enumerable: true,

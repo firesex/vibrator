@@ -18,8 +18,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-(function ()
+document.l10n.addEventListener("warning", function (error) { console.log("warn: " + error.message); });
+document.l10n.addEventListener("error", function (error) { console.log("err: " + error.message); });
+document.l10n.addEventListener("ready", main);
+function main ()
 {
 	"use strict";
 	// global variables for the script
@@ -27,6 +29,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	var i;
 
 	// wait for translation
+		// done at the beginning of the file
+	document.l10n.removeEventListener("ready", main);
+	document.l10n.localize(["language"], function(l10n){
+		if (l10n.entities.language.value != null)
+			document.querySelector("html").setAttribute("lang", l10n.entities.language.value);
+	}); // will be called each time the language changes
 
 	// get vibrations from datas.json
 	vibrations = datas.ARRAY.map(function(el) { return Vibration.createVibes(el); });
@@ -52,9 +60,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		button = document.createElement("button");
 		button.setAttribute("type", "button");
 		button.setAttribute("id", "b" + i);
+		button.setAttribute("data-l10n-id", vibrations[i].name + "Name")
 		button.classList.add("unactive");
 		button.appendChild(document.createTextNode(vibrations[i].name));
 		button.addEventListener("click", startVibrations);
+		document.l10n.localizeNode(button);
+		if (button.textContent === "" || button.textContent === vibrations[i].name + "Name") // this is strange, due to localizeNode()
+			button.textContent = vibrations[i].name;
 		li.appendChild(button);
 		ul.appendChild(li);
 	}
@@ -70,7 +82,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		updateBatteryStatus();
 	}
 	else
-		battery.innerHTML = "?";
+	{
+		battery.setAttribute("data-l10n-id", "batteryUnknown");
+		document.l10n.localizeNode(battery);
+	}
 		// buttons
 	var helpbtn = document.querySelector("#helpbtn"); // button "?"
 	var contentsec = document.querySelector("#contents"); // main section
@@ -98,9 +113,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	function updateBatteryStatus ()
 	{
 		if (navigator.battery.charging)
-			battery.innerHTML = "plugged";
+		{
+			battery.setAttribute("data-l10n-id", "batteryCharging");
+			document.l10n.localizeNode(battery);
+		}
 		else
-			battery.innerHTML = Math.round(navigator.battery.level * 100) + "%";
+		{
+			battery.removeAttribute("data-l10n-id");
+			battery.textContent = Math.round(navigator.battery.level * 100) + "%";
+		}
 	}
 
 		// buttons
@@ -211,7 +232,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		currentButton.classList.remove("unactive");
 		currentButton.classList.add("active");
 		anim.classList.add("vibrate");
-		description.innerHTML = currentVib.description;
+		// translation
+		description.setAttribute("data-l10n-id", currentVib.name + "Descr");
+		document.l10n.localizeNode(description);
+		if (description.textContent === "" || description.textContent === currentVib.name + "Descr") // this is strange, due to localizeNode()
+			description.textContent = currentVib.description;
+
 		if (index === datas.CUSTOM)
 			description.addEventListener("click", onCustomizationClick);
 		if (index === datas.MMH)
@@ -234,9 +260,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			currentButton.classList.add("unactive");
 		}
 		anim.classList.remove("vibrate");
-		description.innerHTML = "";
+		description.textContent = "";
 		currentButton = null;
 		currentVib = null;
 	}
-})();
+}
 
