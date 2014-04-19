@@ -342,7 +342,6 @@ button#cancel
 {
 	position: absolute;
 	font-size: 1.5rem;
-	min-widht: 10rem;
 }
 
 #left
@@ -369,15 +368,19 @@ button#cancel
 
 #STOP
 {
+	margin: 0;
 	margin-top: auto;
 	padding: 1%;
 	border: 1px white solid;
 	border-radius: 1.5rem;
 	background: red;
+	overflow: hidden;
 }
 
 #STOP button
 {
+	margin: 0;
+	padding: 0;
 	border: 1px white solid;
 	border-radius: 2rem;
 }
@@ -393,6 +396,12 @@ button#cancel
 	font-size: 1rem;
 	margin: 0;
 	padding: 0.25rem;
+}
+
+#description span
+{
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 #buttons li
@@ -421,6 +430,21 @@ button#cancel
 	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ef027d), color-stop(1, #ffa6d5));
 	background-color: #ef027d;
+}
+
+/*********** MEDIA QUERIES ***********/
+
+@media (orientation: landscape)
+{
+	body > footer
+	{
+		padding: 0.5%;
+	}
+
+	body > footer > p
+	{
+		display: none;
+	}
 }
 
 /*********** ANIMATION ***********/

@@ -38,32 +38,32 @@ var datas = {
 
 	"ARRAY": [
 		{
-			"name": "Slow",
-			"description": "Vibrates slowly, that's a good start for a good massage",
+			"name": "Slow", // translated
+			"description": "Vibrates slowly, that's a good start for a good massage", // translated
 			"vibes": [200, 200]
 		},
 
 		{
-			"name": "Medium",
-			"description": "Will make you feel hot",
+			"name": "Medium", // translated
+			"description": "Will make you feel hot", // translated
 			"vibes": [100, 100]
 		},
 
 		{
-			"name": "Long",
-			"description": "Vibrates continuously to make you feel very good",
+			"name": "Long", // translated
+			"description": "Vibrates continuously to make you feel very good", // translated
 			"vibes": [1000]
 		},
 
 		{
-			"name": "Mmh!",
-			"description": "Random vibrations: change continuously! Will always surprise you",
+			"name": "Mmh", // translated
+			"description": "Random vibrations: change continuously! Will always surprise you", // translated
 			"vibes": [50, 100, 150, 200, 250, 300, 400, 500, 600, 700]
 		},
 
 		{
-			"name": "Custom",
-			"description": "CLICK HERE to customize the vibrations!!!",
+			"name": "Custom", // translated
+			"description": "Click here to customize the vibrations!!!", // translated
 			"vibes": [200, 100]
 		}
 	]

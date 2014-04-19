@@ -52,9 +52,10 @@ function DOMVibration (insertButton)
 	this.input.setAttribute("required", "required");
 	this.input.setAttribute("min", "50");
 	this.input.setAttribute("max", "1000");
-	this.input.setAttribute("placeholder", "50 to 1000");
+	this.input.setAttribute("placeholder", "50 to 1000"); // translated
 	this.li = document.createElement("li");
 	this.li.classList.add("apparences");
+	this.li.setAttribute("data-l10n-id", "customLiInput");
 	this.li.appendChild(this.input);
 	if (insertButton)
 	{
@@ -62,6 +63,7 @@ function DOMVibration (insertButton)
 		this.button.setAttribute("type", "button");
 		this.li.appendChild(this.button);
 	}
+	document.l10n.localizeNode(this.li);
 }
 
 /**
