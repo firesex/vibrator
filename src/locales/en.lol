@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 <appName """Mmh Vibrator!""">
-<version """0.9""">
+<version """1.0""">
 <devName "FireSex">
 <devMail "mmhfiresex@gmail.com">
 <language "en">
