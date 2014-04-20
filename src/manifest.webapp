@@ -1,6 +1,6 @@
 {
 	"name": "Mmh Vibrator!",
-	"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want!",
+	"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want! It contains 3 standards vibration modes + 2 surprising modes!",
 	"version": "1.0",
 	"developer": {
 		"name": "Mmh Firesex",
@@ -27,10 +27,10 @@
 	"default_locale": "en",
 	"locales": {
 		"en": {
-			"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want!"
+			"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want! It contains 3 standards vibration modes + 2 surprising modes!"
 		},
 		"fr": {
-			"description": "Mmh Vibrator! transforme ton portable en un sextoy sensuel ! Fais-le vibrer quand et comme tu veux !"
+			"description": "Mmh Vibrator! transforme ton portable en un sextoy sensuel ! Fais-le vibrer quand et comme tu veux ! Contient 3 modes de vibrations stardards + 2 modes surprenants !"
 		}
 	}
 }

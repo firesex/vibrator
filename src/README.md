@@ -11,6 +11,13 @@ massage? This application is for you.
 It will give you much less sensations. Nevertheless, you can try this app as a beginning, and buy a sextoy
 if you like it.
 
+Mmh Vibrator! comes with:
+- 3 standard vibration modes (slow, medium, continue)
+- + 1 random mode (create random vibration times)
+- + 1 custom mode where you can custom the vibrations!
+
+Don't hesitate to send me your feedbacks or suggestion about the app!
+
 An online version is available at http://firesex.github.io/vibrator
 make sure to visit it with a smartphone (computers don't vibrate) from Firefox, Chrome / Chromium or Firefox OS / B2G.
 
