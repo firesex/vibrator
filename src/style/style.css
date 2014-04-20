@@ -58,6 +58,16 @@ p
 	padding-right: 1%;
 }
 
+a
+{
+	color: white;
+}
+
+a:visited
+{
+	color: #CCC;
+}
+
 header, footer
 {
 	flex-grow: 0;
@@ -221,6 +231,17 @@ ul.buttonList.centpercent, .buttonList.centpercent li, .buttonList.centpercent b
 #helpsec .buttonList li, #customization .buttonList li
 {
 	flex-grow: 1;
+}
+
+#helpsec h1
+{
+	font-size: 1.75rem;
+	text-align: center;
+}
+
+#helpsec h2
+{
+	font-size: 1.25rem;
 }
 
 /*********** CUSTOMIZATION SECTION ***********/
@@ -393,7 +414,8 @@ button#cancel
 
 #description
 {
-	font-size: 1rem;
+	min-height: 2rem;
+	font-size: 1.5rem;
 	margin: 0;
 	padding: 0.25rem;
 }
