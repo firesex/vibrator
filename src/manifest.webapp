@@ -1,7 +1,7 @@
 {
 	"name": "Mmh Vibrator!",
-	"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want! It contains 3 standards vibration modes + 2 surprising modes!",
-	"version": "1.0",
+	"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want! It contains 3 standards vibration modes + 2 surprising modes! Works only on Firefox OS 1.3 or above, or with Firefox 28 or above (for the android version).",
+	"version": "1.0.1",
 	"developer": {
 		"name": "Mmh Firesex",
 		"url": "https://github.com/firesex"
@@ -27,10 +27,10 @@
 	"default_locale": "en",
 	"locales": {
 		"en": {
-			"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want! It contains 3 standards vibration modes + 2 surprising modes!"
+			"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want! It contains 3 standards vibration modes + 2 surprising modes! Works only on Firefox OS 1.3 or above, or with Firefox 28 or above (for the android version)."
 		},
 		"fr": {
-			"description": "Mmh Vibrator! transforme ton portable en un sextoy sensuel ! Fais-le vibrer quand et comme tu veux ! Contient 3 modes de vibrations stardards + 2 modes surprenants !"
+			"description": "Mmh Vibrator! transforme ton portable en un sextoy sensuel ! Fais-le vibrer quand et comme tu veux ! Contient 3 modes de vibrations stardards + 2 modes surprenants ! Ne marche que sur Firefox OS 1.3 ou supérieur, ou avec Firefox 28 ou plus installé (pour la version android)."
 		}
 	}
 }

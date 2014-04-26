@@ -48,3 +48,16 @@ https://commons.wikimedia.org/wiki/File:Glass_Dildo.JPG
 "battery.svg" has been created by (an) Anonymous and is released in the punlic domain: https://openclipart.org/detail/116089/ftlaptop-battery-by-anonymous
 
 "edit.svg", "add.svg", "del.svg" and "check.svg" have certainly been created by Fawad Hassan and Robert Nyman for their example of Todo Firefox OS application: https://hacks.mozilla.org/2013/06/building-a-todo-app-for-firefox-os-part-1/
+
+Changelog
+---------
+
+###v1.0.1 (pending)###
+bug fixed:
+- HTML W3C compliant
+- hot translation for #description (translated even if nothing should be displayed in it)
+new feature:
+- animation of background for inputs
+
+###v1.0###
+first release
