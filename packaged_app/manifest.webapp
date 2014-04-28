@@ -1,10 +1,37 @@
 {
 	"name": "Mmh Vibrator!",
+	"package_path": "https://firesex.github.io/vibrator/packaged_app/mmhVibrator.zip",
+	"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want! It contains 3 standards vibration modes + 2 surprising modes!",
 	"version": "1.0",
 	"developer": {
 		"name": "Mmh Firesex",
 		"url": "https://github.com/firesex"
 	},
-	"release_notes": "this is a test",
-	"package_path": "https://firesex.github.io/vibrator/packaged_app/mmhVibrator.zip"
+	"installs_allowed_from": [ "https://marketplace.firefox.com" ],
+	"launch_path": "/index.html",
+	"chrome": { "navigation": true },
+	"icons": {
+		"32": "../src/style/icons/icon32.png",
+		"60": "../src/style/icons/icon60.png",
+		"64": "../src/style/icons/icon64.png",
+		"90": "../src/style/icons/icon90.png",
+		"120": "../src/style/icons/icon120.png",
+		"128": "../src/style/icons/icon128.png",
+		"256": "../src/style/icons/icon256.png"
+	},
+	"fullscreen": "true",
+	"permissions": {
+		"storage": {
+			"description": "Required to store the customized vibrations created in-app"
+		}
+	},
+	"default_locale": "en",
+	"locales": {
+		"en": {
+			"description": "Mmh Vibrator! transforms your phone into a sensual sextoy! It makes it vibrate when you want, and how you want! It contains 3 standards vibration modes + 2 surprising modes!"
+		},
+		"fr": {
+			"description": "Mmh Vibrator! transforme ton portable en un sextoy sensuel ! Fais-le vibrer quand et comme tu veux ! Contient 3 modes de vibrations stardards + 2 modes surprenants !"
+		}
+	}
 }
