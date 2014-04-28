@@ -1,14 +1,14 @@
 Mmh Vibrator!
 =============
 
-Mmh Vibrator! is a Firefox OS open webapp that transforms your phone into a sensual sextoy.
+Mmh Vibrator! is a Firefox OS open webapp that makes your phone sensual.
 
 Mmh Vibrator! intends to give you relaxation and pleasure. You want to spice your
-life? Try how can vibrations feel? Try some new sexual experiment or just give your girlfriend a good
+life? Try how can vibrations feel? Try some new experiments or just give your girlfriend a good
 massage? This application is for you.
 
-*Warning:* this will *not* transform your phone into a real sextoy.
-It will give you much less sensations. Nevertheless, you can try this app as a beginning, and buy a sextoy
+*Warning:* this will *not* transform your phone into a real vibrator.
+It will give you much less sensations. Nevertheless, you can try this app as a beginning, and buy a vibrator
 if you like it.
 
 Mmh Vibrator! comes with:
@@ -51,13 +51,6 @@ https://commons.wikimedia.org/wiki/File:Glass_Dildo.JPG
 
 Changelog
 ---------
-
-###v1.0.1 (pending)###
-bug fixed:
-- HTML W3C compliant
-- hot translation for #description (translated even if nothing should be displayed in it)
-new feature:
-- animation of background for inputs
 
 ###v1.0###
 first release
