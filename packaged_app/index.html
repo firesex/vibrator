@@ -32,14 +32,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<button type="button" id="installbtn">Install the app!</button>
 	<p id="result"></p>
 	<script>
-function ()
+(function()
 {
+	"use strict";
 	var button = document.querySelector("#installbtn");
 	button.addEventListener("click", install);
 
 	function install ()
 	{
-		var request = window.navigator.mozApps.installPackage("https://firesex.github.io/vibrator/packaged_app/");
+		var request = window.navigator.mozApps.installPackage("https://firesex.github.io/vibrator/packaged_app/mmhVibrator.zip");
 		request.onsuccess = function ()
 		{
 			var p = document.querySelector("#result");
@@ -51,7 +52,7 @@ function ()
 			p.textContent = "error! " + this.error.name;
 		};
 	}
-}();
+})();
 	</script>
 </body>
 </html>
