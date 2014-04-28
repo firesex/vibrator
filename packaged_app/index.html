@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+Mmh Vibrator! transforms your phone into a sensual sextoy!
+Copyright © 2014 firesex
+mmhfiresex@gmail.com
+
+This file is part of Mmh Vibrator!
+
+Mmh Vibrator! is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title data-l10n-id="title">Mmh Vibrator!</title>
+	<link rel="icon" href="style/icons/icon16.png" sizes="16x16"/>
+	<link rel="icon" href="style/icons/icon32.png" sizes="32x32"/>
+	<meta name="author" content="firesex">
+	<meta name="application-name" content="Mmh Vibrator!">
+</head>
+<body>
+	<button type="button" id="installbtn">Install the app!</button>
+	<p id="result"></p>
+	<script>
+button = document.querySelector("#installbtn");
+button.addEventListener("click", install);
+
+function install ()
+{
+	var request = window.navigator.mozApps.installPackage("/vibrator/packaged_app/package.manifest");
+	request.onsuccess = function ()
+	{
+		var p = document.querySelector("#result");
+		p.textContent = "success!";
+	};
+	request.onerror = function ()
+	{
+		var p = document.querySelector("#result");
+		p.textContent = "error! " + this.error.name;
+	};
+}
+	</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+ "name" : "Mmh Vibrator!",
+ "version" : "1.0.1",
+ "release_notes": "this is a test",
+ "package_path": "/vibrator/packaged_app/mmhVibrator.zip",
+}
