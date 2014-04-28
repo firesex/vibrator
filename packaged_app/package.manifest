@@ -1,6 +1,9 @@
 {
- "name" : "Mmh Vibrator!",
- "version" : "1.0.1",
- "release_notes": "this is a test",
- "package_path": "https://firesex.github.io/vibrator/packaged_app/mmhVibrator.zip",
+	"name": "Mmh Vibrator!",
+	"developer": {
+		"name": "Mmh Firesex",
+		"url": "https://github.com/firesex"
+	},
+	"release_notes": "this is a test",
+	"package_path": "https://firesex.github.io/vibrator/packaged_app/mmhVibrator.zip",
 }
