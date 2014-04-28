@@ -7,7 +7,7 @@
 		"name": "Mmh Firesex",
 		"url": "https://github.com/firesex"
 	},
-	"installs_allowed_from": [ "https://marketplace.firefox.com" ],
+	"installs_allowed_from": [ "https://marketplace.firefox.com", "https://firesex.github.io" ],
 	"launch_path": "/index.html",
 	"chrome": { "navigation": true },
 	"icons": {
