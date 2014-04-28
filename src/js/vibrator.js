@@ -252,6 +252,7 @@ function main ()
 		if (currentVib !== null)
 			currentVib.stopVibration();
 		description.removeEventListener("click", onCustomizationClick);
+		description.removeAttribute("data-l10n-id");
 		if (currentButton !== null)
 		{
 			currentButton.removeEventListener("click", stopVibrations);

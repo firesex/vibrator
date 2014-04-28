@@ -1,14 +1,14 @@
 Mmh Vibrator!
 =============
 
-Mmh Vibrator! is a Firefox OS open webapp that transforms your phone into a sensual sextoy.
+Mmh Vibrator! is a Firefox OS open webapp that makes your phone sensual.
 
 Mmh Vibrator! intends to give you relaxation and pleasure. You want to spice your
-life? Try how can vibrations feel? Try some new sexual experiment or just give your girlfriend a good
+life? Try how can vibrations feel? Try some new experiments or just give your girlfriend a good
 massage? This application is for you.
 
-*Warning:* this will *not* transform your phone into a real sextoy.
-It will give you much less sensations. Nevertheless, you can try this app as a beginning, and buy a sextoy
+*Warning:* this will *not* transform your phone into a real vibrator.
+It will give you much less sensations. Nevertheless, you can try this app as a beginning, and buy a vibrator
 if you like it.
 
 Mmh Vibrator! comes with:
@@ -48,3 +48,9 @@ https://commons.wikimedia.org/wiki/File:Glass_Dildo.JPG
 "battery.svg" has been created by (an) Anonymous and is released in the punlic domain: https://openclipart.org/detail/116089/ftlaptop-battery-by-anonymous
 
 "edit.svg", "add.svg", "del.svg" and "check.svg" have certainly been created by Fawad Hassan and Robert Nyman for their example of Todo Firefox OS application: https://hacks.mozilla.org/2013/06/building-a-todo-app-for-firefox-os-part-1/
+
+Changelog
+---------
+
+###v1.0###
+first release
