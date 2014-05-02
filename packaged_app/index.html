@@ -29,18 +29,38 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<meta name="application-name" content="Mmh Vibrator!">
 </head>
 <body>
-	<button type="button" id="installbtn">Install the app!</button>
+	<button type="button" id="installbtn">Install packaged app!</button>
+	<p></p>
+	<button type="button" id="installbtn2">Install hosted app!</button>
 	<p id="result"></p>
 	<script>
 (function()
 {
 	"use strict";
+
 	var button = document.querySelector("#installbtn");
+	var button2 = document.querySelector("#installbtn2");
 	button.addEventListener("click", install);
+	button2.addEventListener("click", install2);
 
 	function install ()
 	{
 		var request = window.navigator.mozApps.installPackage("https://firesex.github.io/vibrator/packaged_app/manifest.webapp");
+		request.onsuccess = function ()
+		{
+			var p = document.querySelector("#result");
+			p.textContent = "success!";
+		};
+		request.onerror = function ()
+		{
+			var p = document.querySelector("#result");
+			p.textContent = "error! " + this.error.name;
+		};
+	}
+
+	function install2 ()
+	{
+		var request = window.navigator.mozApps.install("https://firesex.github.io/vibrator/src/manifest.webapp");
 		request.onsuccess = function ()
 		{
 			var p = document.querySelector("#result");
