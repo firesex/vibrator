@@ -101,7 +101,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	""">
 <aboutTitle2 """L'auteur""">
 	<aboutp2 """Cette application a été créée par
-		<a href="https://github.com/firesex" title="github profile">{{devName}}</a>. N'hésite pas à m'envoyer tes
+		<a href="https://github.com/firesex" title="github profile" target="_blank">{{devName}}</a>. N'hésite pas à m'envoyer tes
 		suggestions ou requêtes&#xA0;! Tu peux le faire directement dans les commentaires sur le marketplace, dans
 		le dépôt GitHub (en remplissant un bug...) ou par email à
 		<a href="mailto:{{devMail}}" title="contact">{{devMail}}</a>.
@@ -112,9 +112,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <aboutTitle3 """Licence""">
 	<aboutTitle4 """{{appName}}""">
 		<aboutp3 """L'intégralité de l'application est fournie sous la licence
-			<a href="https://www.gnu.org/licenses/gpl.html" title="license">GNU GPLv3</a>. Les sources sont disponibles
+			<a href="https://www.gnu.org/licenses/gpl.html" title="license" target="_blank">GNU GPLv3</a>. Les sources sont disponibles
 			sur le dépôt Github
-			<a href="https://github.com/firesex/vibrator" title="github repo">https://github.com/firesex/vibrator</a>.
+			<a href="https://github.com/firesex/vibrator" title="github repo" target="_blank">https://github.com/firesex/vibrator</a>.
 		""">
 	<aboutTitle5 """Composants""">
 		<aboutp4 """{{appName}} utilise des composants créés par des personnes tierces, comme la police d'écriture ou
