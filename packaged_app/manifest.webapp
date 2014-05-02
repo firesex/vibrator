@@ -8,7 +8,6 @@
 		"url": "https://github.com/firesex"
 	},
 	"launch_path": "/index.html",
-	"chrome": { "navigation": true },
 	"icons": {
 		"32": "../src/style/icons/icon32.png",
 		"60": "../src/style/icons/icon60.png",
