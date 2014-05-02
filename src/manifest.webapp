@@ -7,7 +7,6 @@
 		"url": "https://github.com/firesex"
 	},
 	"launch_path": "/vibrator/src/index.html",
-	"chrome": { "navigation": true },
 	"icons": {
 		"32": "/vibrator/src/style/icons/icon32.png",
 		"60": "/vibrator/src/style/icons/icon60.png",
