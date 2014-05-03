@@ -448,6 +448,12 @@ button#cancel
 	text-shadow: 0.25rem 0.25rem 0.1rem #c70067;
 }
 
+#buttons button.unactive
+{
+	background: -moz-linear-gradient(center top, #ffa6d5 5%, #ef027d 100%) !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffa6d5), color-stop(1, #ef027d)) !important;
+}
+
 #buttons button.active, #buttons button:active
 {
 	background: -moz-linear-gradient(center top, #ef027d 5%, #ffa6d5 100%);

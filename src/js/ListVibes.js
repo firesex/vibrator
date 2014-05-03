@@ -105,7 +105,7 @@ function ListVibes (vibration)
 					if (index >= 2)
 					{
 						vibrations[index].button.setAttribute("id", "customBtn" + index);
-						vibrations[index].button.addEventListener("click", this.removeVibes);
+						onClick(vibrations[index].button, this.removeVibes);
 					}
 					ul.appendChild(vibrations[index].li);
 				}
