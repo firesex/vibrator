@@ -41,7 +41,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 	function onEnd (e)
 	{
-		e.target.click();
+		if (point.x !== -1 && point.y !== -1)
+			e.target.click();
 		point = { x: -1, y: -1 };
 	}
 
