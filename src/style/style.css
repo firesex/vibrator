@@ -308,6 +308,13 @@ ul#vibes
 	background: rgba(255, 255, 255, 0.5);
 }
 
+#customization button
+{
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
 #vibes button
 {
 	flex-grow: 0;
@@ -316,23 +323,23 @@ ul#vibes
 	margin-left: auto;
 	width: auto;
 	min-width: 2rem;
-	background: url(images/del.svg) center center / contain no-repeat, rgba(255, 255, 255, 0.2);
+	background-image: url(images/del.svg);
 }
 
 button#addVibes
 {
-	background: url(images/add.svg) center center / contain no-repeat, rgba(255, 255, 255, 0.2);
+	background-image: url(images/add.svg);
 	border-top: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 button#save
 {
-	background: url(images/check.svg) center center / contain no-repeat;
+	background-image: url(images/check.svg);
 }
 
 button#cancel
 {
-	background: url(images/del.svg) center center / contain no-repeat;
+	background-image: url(images/del.svg);
 }
 
 #customization article
