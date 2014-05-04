@@ -91,6 +91,7 @@ function main ()
 	var contentsec = document.querySelector("#contents"); // main section
 	var helpsec = document.querySelector("#helpsec"); // help section
 	var customsec = document.querySelector("#customization"); // customization section
+	var stopbtn = document.querySelector("#stopbtn"); // stop button
 
 	var howtobtn = document.querySelector("#howtobtn"); // button howto in the help section
 	var aboutbtn = document.querySelector("#aboutbtn"); // button about in the help section
@@ -100,7 +101,7 @@ function main ()
 	onClick(helpbtn, onHelpClick);
 	onClick(howtobtn, onHowtoClick);
 	onClick(aboutbtn, onAboutClick);
-	onClick(document.querySelector("#stopbtn"), stopVibrations);
+	onClick(stopbtn, stopVibrations);
 	// custom buttons
 	onClick(document.querySelector("#save"), onSaveCustom);
 	onClick(document.querySelector("#cancel"), onCancelCustom);
@@ -201,6 +202,8 @@ function main ()
 		stopVibrations();
 		document.querySelector("#b" + datas.CUSTOM).click();
 		onDisplayMain();
+		stopbtn.focus(); // to make the keyboard disappear
+		stopbtn.blur();
 	}
 
 	/** reset the custom gui and return to the main screen */
@@ -208,6 +211,8 @@ function main ()
 	{
 		listvibes.onCancel();
 		onDisplayMain();
+		stopbtn.focus(); // to make the keyboard disappear
+		stopbtn.blur();
 	}
 
 	// callbacks functions
