@@ -63,7 +63,7 @@ function main ()
 		button.setAttribute("data-l10n-id", vibrations[i].name + "Name")
 		button.classList.add("unactive");
 		button.appendChild(document.createTextNode(vibrations[i].name));
-		button.addEventListener("click", startVibrations);
+		onClick(button, startVibrations);
 		document.l10n.localizeNode(button);
 		if (button.textContent === "" || button.textContent === vibrations[i].name + "Name") // this is strange, due to localizeNode()
 			button.textContent = vibrations[i].name;
@@ -96,16 +96,15 @@ function main ()
 	var aboutbtn = document.querySelector("#aboutbtn"); // button about in the help section
 	var howtosec = document.querySelector("#howto"); // howto section in the help section
 	var aboutsec = document.querySelector("#about"); // about section in the help section
-	
-	helpbtn.addEventListener("click", onHelpClick);
-	howtobtn.addEventListener("click", onHowtoClick);
-	aboutbtn.addEventListener("click", onAboutClick);
-	document.querySelector("#save").addEventListener("click", onDisplayMain);
+
+	onClick(helpbtn, onHelpClick);
+	onClick(howtobtn, onHowtoClick);
+	onClick(aboutbtn, onAboutClick);
+	onClick(document.querySelector("#stopbtn"), stopVibrations);
 	// custom buttons
-	document.querySelector("#save").addEventListener("click", onSaveCustom);
-	document.querySelector("#cancel").addEventListener("click", onCancelCustom);
-	document.querySelector("#addVibes").addEventListener("click", listvibes.addVibes);
-	document.querySelector("#stopbtn").addEventListener("click", stopVibrations);
+	onClick(document.querySelector("#save"), onSaveCustom);
+	onClick(document.querySelector("#cancel"), onCancelCustom);
+	onClick(document.querySelector("#addVibes"), listvibes.addVibes);
 
 	// callbacks for UI actions
 		// battery
@@ -227,8 +226,8 @@ function main ()
 		currentButton = event.target;
 		currentVib = vibrations[index];
 
-		currentButton.removeEventListener("click", startVibrations);
-		currentButton.addEventListener("click", stopVibrations);
+		removeClick(currentButton, startVibrations);
+		onClick(currentButton, stopVibrations);
 		currentButton.classList.remove("unactive");
 		currentButton.classList.add("active");
 		anim.classList.add("vibrate");
@@ -239,7 +238,7 @@ function main ()
 			description.textContent = currentVib.description;
 
 		if (index === datas.CUSTOM)
-			description.addEventListener("click", onCustomizationClick);
+			onClick(description, onCustomizationClick);
 		if (index === datas.MMH)
 			currentVib.startVibrationRandom(); // set idInterval in it
 		else
@@ -251,12 +250,12 @@ function main ()
 	{
 		if (currentVib !== null)
 			currentVib.stopVibration();
-		description.removeEventListener("click", onCustomizationClick);
+		removeClick(description, onCustomizationClick);
 		description.removeAttribute("data-l10n-id");
 		if (currentButton !== null)
 		{
-			currentButton.removeEventListener("click", stopVibrations);
-			currentButton.addEventListener("click", startVibrations);
+			removeClick(currentButton, stopVibrations);
+			onClick(currentButton, startVibrations);
 			currentButton.classList.remove("active");
 			currentButton.classList.add("unactive");
 		}
