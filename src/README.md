@@ -52,5 +52,5 @@ https://commons.wikimedia.org/wiki/File:Glass_Dildo.JPG
 Changelog
 ---------
 
-###v1.0###
+###v1.0.1###
 first release
